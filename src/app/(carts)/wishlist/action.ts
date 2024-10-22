@@ -1,13 +1,16 @@
 "use server";
 
-import { getServerSession } from "next-auth/next";
-import { authOptions } from "@/libs/auth";
-import { Session } from "next-auth";
 import mongoose, { Schema } from "mongoose";
+
+import { EnrichedProducts } from "@/types/types";
+import { JsonParse } from "@/libs/utils";
+import { Product } from "@/models/Products";
+import { Session } from "next-auth";
+import { authOptions } from "@/libs/auth";
+import { connectDB } from "@/libs/mongodb";
+import { getServerSession } from "next-auth/next";
 import { kv } from "@vercel/kv";
 import { revalidatePath } from "next/cache";
-import { Product } from "@/models/Products";
-import { connectDB } from "@/libs/mongodb";
 
 export type Wishlists = {
   userId: string;
@@ -60,56 +63,138 @@ export async function addItem(productId: Schema.Types.ObjectId) {
 }
 
 export async function getItems(userId: string) {
-  connectDB();
+  // Mock data for updatedCart
+  const mockUpdatedCart: EnrichedProducts[] = [
+    {
+      productId: new Schema.Types.ObjectId("5f8d0f3e1c9d440000a1e1a1"),
+      size: "M",
+      variantId: "price_1234567890",
+      quantity: 2,
+      price: 29.99,
+      color: "Blue",
+      category: "T-Shirts",
+      image: ["https://vajrafit.com/cdn/shop/files/custom_resized_b9df6f59-b5d8-4cf8-9b3a-5f399961881f.webp"],
+      name: "Classic Blue T-Shirt",
+      purchased: false,
+      _id: new Schema.Types.ObjectId("5f8d0f3e1c9d440000a1e1a1"),
+    },
+    {
+      productId: new Schema.Types.ObjectId("5f8d0f3e1c9d440000a1e1a2"),
+      size: "L",
+      variantId: "price_2345678901",
+      quantity: 1,
+      price: 59.99,
+      color: "Black",
+      category: "Jeans",
+      image: ["https://vajrafit.com/cdn/shop/files/custom_resized_b9df6f59-b5d8-4cf8-9b3a-5f399961881f.webp"],
+      name: "Slim Fit Black Jeans",
+      purchased: false,
+      _id: new Schema.Types.ObjectId("5f8d0f3e1c9d440000a1e1a2"),
+    },
+    {
+      productId: new Schema.Types.ObjectId("5f8d0f3e1c9d440000a1e1a3"),
+      size: "S",
+      variantId: "price_3456789012",
+      quantity: 3,
+      price: 19.99,
+      color: "White",
+      category: "Socks",
+      image: ["https://vajrafit.com/cdn/shop/files/custom_resized_b9df6f59-b5d8-4cf8-9b3a-5f399961881f.webp"],
+      name: "Cotton Ankle Socks",
+      purchased: false,
+      _id: new Schema.Types.ObjectId("5f8d0f3e1c9d440000a1e1a3"),
+    },
+    {
+      productId: new Schema.Types.ObjectId("5f8d0f3e1c9d440000a1e1a4"),
+      size: "XL",
+      variantId: "price_4567890123",
+      quantity: 1,
+      price: 89.99,
+      color: "Green",
+      category: "Jackets",
+      image: ["https://vajrafit.com/cdn/shop/files/custom_resized_b9df6f59-b5d8-4cf8-9b3a-5f399961881f.webp"],
+      name: "Waterproof Hiking Jacket",
+      purchased: false,
+      _id: new Schema.Types.ObjectId("5f8d0f3e1c9d440000a1e1a4"),
+    },
+    {
+      productId: new Schema.Types.ObjectId("5f8d0f3e1c9d440000a1e1a5"),
+      size: "One Size",
+      variantId: "price_5678901234",
+      quantity: 2,
+      price: 24.99,
+      color: "Red",
+      category: "Hats",
+      image: ["https://vajrafit.com/cdn/shop/files/custom_resized_b9df6f59-b5d8-4cf8-9b3a-5f399961881f.webp"],
+      name: "Adjustable Baseball Cap",
+      purchased: false,
+      _id: new Schema.Types.ObjectId("5f8d0f3e1c9d440000a1e1a5"),
+    },
+  ];
 
-  if (!userId) {
-    console.error(`User Id not found.`);
-    return null;
-  }
+  return JsonParse(mockUpdatedCart);
 
-  const wishlist: Wishlists | null = await kv.get(`wishlist-${userId}`);
+  // connectDB();
 
-  if (wishlist === null) {
-    console.error("wishlist not found.");
-    return null;
-  }
+  // if (!userId) {
+  //   console.error(`User Id not found.`);
+  //   return null;
+  // }
 
-  const updatedWishlist = [];
-  for (const wishlistItem of wishlist.items) {
-    try {
-      if (wishlistItem.productId) {
-        const matchingProduct = await Product.findById(wishlistItem.productId);
+  // const wishlist: Wishlists | null = await kv.get(`wishlist-${userId}`);
 
-        if (!matchingProduct) {
-          console.error(
-            `Product not found for productId: ${wishlistItem.productId}`,
-          );
-          continue;
-        } else {
-          updatedWishlist.push(matchingProduct);
-        }
-      }
-    } catch (error) {
-      console.error("Error getting product details:", error);
-    }
-  }
+  // if (wishlist === null) {
+  //   console.error("wishlist not found.");
+  //   return null;
+  // }
 
-  const filteredWishlist = updatedWishlist.filter((item) => item !== null);
+  // const updatedWishlist = [];
+  // for (const wishlistItem of wishlist.items) {
+  //   try {
+  //     if (wishlistItem.productId) {
+  //       const matchingProduct = await Product.findById(wishlistItem.productId);
 
-  return filteredWishlist;
+  //       if (!matchingProduct) {
+  //         console.error(
+  //           `Product not found for productId: ${wishlistItem.productId}`,
+  //         );
+  //         continue;
+  //       } else {
+  //         updatedWishlist.push(matchingProduct);
+  //       }
+  //     }
+  //   } catch (error) {
+  //     console.error("Error getting product details:", error);
+  //   }
+  // }
+
+  // const filteredWishlist = updatedWishlist.filter((item) => item !== null);
+
+  // return filteredWishlist;
 }
 
 export async function getTotalWishlist() {
-  const session: Session | null = await getServerSession(authOptions);
-  const wishlists: Wishlists | null = await kv.get(
-    `wishlist-${session?.user._id}`,
-  );
+  // Mock data for wishlists
+  const mockWishlists: Wishlists = {
+    userId: "mockUserId",
+    items: [
+      { productId: new Schema.Types.ObjectId("5f8d0f3e1c9d440000a1e1a1") },
+      { productId: new Schema.Types.ObjectId("5f8d0f3e1c9d440000a1e1a2") },
+      { productId: new Schema.Types.ObjectId("5f8d0f3e1c9d440000a1e1a3") },
+    ],
+  };
 
-  if (wishlists === null) {
-    return undefined;
-  }
+  return JsonParse(mockWishlists);
+  // const session: Session | null = await getServerSession(authOptions);
+  // const wishlists: Wishlists | null = await kv.get(
+  //   `wishlist-${session?.user._id}`,
+  // );
 
-  return wishlists;
+  // if (wishlists === null) {
+  //   return undefined;
+  // }
+
+  // return wishlists;
 }
 
 export async function delItem(productId: Schema.Types.ObjectId) {

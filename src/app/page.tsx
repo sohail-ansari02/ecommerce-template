@@ -1,7 +1,7 @@
-import { Suspense } from "react";
-import { Products } from "../components/products/Products";
-import { getAllProducts } from "./actions";
 import ProductSkeleton from "@/components/skeletons/ProductSkeleton";
+import { Products } from "../components/products/Products";
+import { Suspense } from "react";
+import { getAllProducts } from "./actions";
 
 const Home = async () => {
   return (
@@ -17,7 +17,6 @@ const Home = async () => {
 
 const AllProducts = async () => {
   const products = await getAllProducts();
-
   return <Products products={products} extraClassname="" />;
 };
 

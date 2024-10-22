@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
 import Image, { ImageLoader } from "next/image";
+import React, { useState } from "react";
+
 import { Skeleton } from "../ui/skeleton";
 
 const cloudinaryLoader: ImageLoader = ({ src, width, quality }) => {
@@ -41,17 +42,17 @@ export const Images = ({
 
   return (
     <div className={!imageLoaded ? "relative" : ""}>
+      {/* sizes={sizes} */}
       <Image
         loader={cloudinaryLoader}
         width={width}
         height={height}
-        src={image[0]}
         alt={name}
+        src={image[0]}
         priority={priority}
         className="w-full max-w-img aspect-[2/3] brightness-90"
         onLoad={handleImageLoadComplete}
-        sizes={sizes}
-      />
+        />
       <div
         className={
           !imageLoaded
