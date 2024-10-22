@@ -18,11 +18,11 @@ const ProductCartInfo = ({ product }: { product: EnrichedProducts }) => {
   } = product;
 
   const handleAddItem = useCallback(() => {
-    addItem(category, productId, size, variantId, price);
+    addItem(category, productId as any, size, variantId, price);
   }, [category, productId, size, variantId, price]);
 
   const handleDelItem = useCallback(() => {
-    delOneItem(productId, size, variantId);
+    delOneItem(productId as any, size, variantId);
   }, [productId, size, variantId]);
 
   const quantityButtons = useCallback(() => {
