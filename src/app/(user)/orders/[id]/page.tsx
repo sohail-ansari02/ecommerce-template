@@ -1,14 +1,14 @@
+import { EnrichedProducts } from "@/types/types";
+import ProductSkeleton from "@/components/skeletons/ProductSkeleton";
 import { Products } from "@/components/products/Products";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Suspense } from "react";
 import { format } from "date-fns";
 import { getOrder } from "../action";
-import { Suspense } from "react";
-import ProductSkeleton from "@/components/skeletons/ProductSkeleton";
-import { Skeleton } from "@/components/ui/skeleton";
-import { EnrichedProducts } from "@/types/types";
 
 export async function generateMetadata() {
   return {
-    title: `Order Details | Ecommerce Template`,
+    title: `Order Details | Fitness Ecommerce`,
   };
 }
 
@@ -89,17 +89,17 @@ const OrderProducts = async ({ id }: { id: string }) => {
               <span>
                 {totalProducts} {productsText}
               </span>{" "}
-              <span>{(order.total_price / 100).toFixed(2)} €</span>
+              <span>{(order.total_price / 100).toFixed(2)} $</span>
             </div>
             <div className={bxInfoStyles}>
               <span>Delivery</span> <span>FREE</span>
             </div>
             <div className={bxInfoStyles}>
-              <span>Total Discount</span> <span>0 €</span>
+              <span>Total Discount</span> <span>0 $</span>
             </div>
             <div className={bxInfoStyles}>
               <span>Total</span>{" "}
-              <span>{(order.total_price / 100).toFixed(2)} €</span>
+              <span>{(order.total_price / 100).toFixed(2)} $</span>
             </div>
             <div className={bxInfoStyles}>(VAT included)</div>
           </div>
@@ -181,7 +181,7 @@ const AllOrderSkeleton = ({ items }: { items: number }) => {
             <span>Delivery</span> <span>FREE</span>
           </div>
           <div className={bxInfoStyles}>
-            <span>Total Discount</span> <span>0 €</span>
+            <span>Total Discount</span> <span>0 $</span>
           </div>
           <div className={bxInfoStyles}>
             <span>Total</span>{" "}

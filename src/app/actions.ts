@@ -1,7 +1,9 @@
 "use server";
 
-import { EnrichedProducts } from "@/types/types";
-import { JsonParse } from "@/libs/utils";
+import {  } from "@/libs/utils";
+
+import { EnrichedProducts, ProductDocument } from "@/types/types";
+
 import { Product } from "@/models/Products";
 import { Schema } from "mongoose";
 import { connectDB } from "@/libs/mongodb";
@@ -16,7 +18,7 @@ export const getAllProducts = async () => {
       quantity: 2,
       price: 29.99,
       color: "Blue",
-      category: "T-Shirts",
+      category: "Equipment",
       image: ["/gada.webp"],
       name: "Classic Blue T-Shirt",
       purchased: false,
@@ -29,9 +31,9 @@ export const getAllProducts = async () => {
       quantity: 1,
       price: 59.99,
       color: "Black",
-      category: "Jeans",
+      category: "Equipment",
       image: ["/gada.webp"],
-      name: "Slim Fit Black Jeans",
+      name: "Gada",
       purchased: false,
       _id: Math.random(),
     },
@@ -42,9 +44,9 @@ export const getAllProducts = async () => {
       quantity: 3,
       price: 19.99,
       color: "White",
-      category: "Socks",
+      category: "Equipment",
       image: ["/gada.webp"],
-      name: "Cotton Ankle Socks",
+      name: "Gada",
       purchased: false,
       _id: Math.random(),
     },
@@ -55,9 +57,9 @@ export const getAllProducts = async () => {
       quantity: 1,
       price: 89.99,
       color: "Green",
-      category: "Jackets",
+      category: "Equipment",
       image: ["/gada.webp"],
-      name: "Waterproof Hiking Jacket",
+      name: "Gada",
       purchased: false,
       _id: Math.random(),
     },
@@ -68,9 +70,9 @@ export const getAllProducts = async () => {
       quantity: 2,
       price: 24.99,
       color: "Red",
-      category: "Hats",
+      category: "Equipment",
       image: ["/gada.webp"],
-      name: "Adjustable Baseball Cap",
+      name: "Gada",
       purchased: false,
       _id: Math.random(),
     },
@@ -112,7 +114,7 @@ export const getCategoryProducts = async (category: string) => {
       color: "Black",
       category: "Jeans",
       image: ["/gada.webp"],
-      name: "Slim Fit Black Jeans",
+      name: "Gada",
       purchased: false,
       _id: Math.random(),
     },
@@ -125,7 +127,7 @@ export const getCategoryProducts = async (category: string) => {
       color: "White",
       category: "Socks",
       image: ["/gada.webp"],
-      name: "Cotton Ankle Socks",
+      name: "Gada",
       purchased: false,
       _id: Math.random(),
     },
@@ -138,7 +140,7 @@ export const getCategoryProducts = async (category: string) => {
       color: "Green",
       category: "Jackets",
       image: ["/gada.webp"],
-      name: "Waterproof Hiking Jacket",
+      name: "Gada",
       purchased: false,
       _id: Math.random(),
     },
@@ -151,13 +153,13 @@ export const getCategoryProducts = async (category: string) => {
       color: "Red",
       category: "Hats",
       image: ["/gada.webp"],
-      name: "Adjustable Baseball Cap",
+      name: "Gada",
       purchased: false,
       _id: Math.random(),
     },
   ];
 
-  return  JsonParse( mockUpdatedCart);
+  return  ( mockUpdatedCart);
   // try {
   //   await connectDB();
 
@@ -193,7 +195,7 @@ export const getRandomProducts = async (productId: string) => {
       color: "Black",
       category: "Jeans",
       image: ["/gada.webp"],
-      name: "Slim Fit Black Jeans",
+      name: "Gada",
       purchased: false,
       _id: Math.random(),
     },
@@ -206,7 +208,7 @@ export const getRandomProducts = async (productId: string) => {
       color: "White",
       category: "Socks",
       image: ["/gada.webp"],
-      name: "Cotton Ankle Socks",
+      name: "Gada",
       purchased: false,
       _id: Math.random(),
     },
@@ -219,7 +221,7 @@ export const getRandomProducts = async (productId: string) => {
       color: "Green",
       category: "Jackets",
       image: ["/gada.webp"],
-      name: "Waterproof Hiking Jacket",
+      name: "Gada",
       purchased: false,
       _id: Math.random(),
     },
@@ -232,13 +234,13 @@ export const getRandomProducts = async (productId: string) => {
       color: "Red",
       category: "Hats",
       image: ["/gada.webp"],
-      name: "Adjustable Baseball Cap",
+      name: "Gada",
       purchased: false,
       _id: Math.random(),
     },
   ];
 
-  return JsonParse( mockUpdatedCart);
+  return ( mockUpdatedCart);
   // const shuffleArray = (array: EnrichedProducts[]) => {
   //   let shuffled = array.slice();
   //   for (let i = shuffled.length - 1; i > 0; i--) {
@@ -264,75 +266,26 @@ export const getRandomProducts = async (productId: string) => {
 };
 
 export const getProduct = async (_id: string) => {
-  const mockUpdatedCart: EnrichedProducts[] = [
-    {
-      productId: Math.random(),
-      size: "M",
-      variantId: "price_1234567890",
-      quantity: 2,
-      price: 29.99,
-      color: "Blue",
-      category: "T-Shirts",
-      image: ["/gada.webp"],
-      name: "Classic Blue T-Shirt",
-      purchased: false,
-      _id: Math.random(),
-    },
-    {
-      productId: Math.random(),
-      size: "L",
-      variantId: "price_2345678901",
-      quantity: 1,
-      price: 59.99,
-      color: "Black",
-      category: "Jeans",
-      image: ["/gada.webp"],
-      name: "Slim Fit Black Jeans",
-      purchased: false,
-      _id: Math.random(),
-    },
-    {
-      productId: Math.random(),
-      size: "S",
-      variantId: "price_3456789012",
-      quantity: 3,
-      price: 19.99,
-      color: "White",
-      category: "Socks",
-      image: ["/gada.webp"],
-      name: "Cotton Ankle Socks",
-      purchased: false,
-      _id: Math.random(),
-    },
-    {
-      productId: Math.random(),
-      size: "XL",
-      variantId: "price_4567890123",
-      quantity: 1,
-      price: 89.99,
-      color: "Green",
-      category: "Jackets",
-      image: ["/gada.webp"],
-      name: "Waterproof Hiking Jacket",
-      purchased: false,
-      _id: Math.random(),
-    },
-    {
-      productId: Math.random(),
-      size: "One Size",
-      variantId: "price_5678901234",
-      quantity: 2,
-      price: 24.99,
-      color: "Red",
-      category: "Hats",
-      image: ["/gada.webp"],
-      name: "Adjustable Baseball Cap",
-      purchased: false,
-      _id: Math.random(),
-    },
-  ];
+  const mockUpdatedCart: ProductDocument | any = {
+    "name": "Yoga Mat",
+    "description": "High-density foam yoga mat for comfort and support during your workouts. Non-slip surface.",
+    "price": 29.99,
+    "category": "Accessories",
+    "sizes": ["72 x 24 inches"],
+    "image": ["https://example.com/images/yogamat.jpg"],
+    "variants": [
+      {
+        "priceId": "variant-001",
+        "color": "Black",
+        "images": ["/gada.webp"]
+      }
+    ],
+    "quantity": 100,
+    "productId": "605c72ef3b64b4e0f8e6d4c1",
+    "purchased": false
+  };
 
-  return JsonParse(mockUpdatedCart[2]);
+  return mockUpdatedCart;
   // try {
   //   await connectDB();
 

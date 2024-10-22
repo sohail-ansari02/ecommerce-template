@@ -1,14 +1,15 @@
-import { Products } from "@/components/products/Products";
-import Link from "next/link";
-import { getItems } from "./action";
 import { Session, getServerSession } from "next-auth";
-import { authOptions } from "@/libs/auth";
-import { Suspense } from "react";
+
+import Link from "next/link";
 import { Loader } from "@/components/common/Loader";
+import { Products } from "@/components/products/Products";
+import { Suspense } from "react";
+import { authOptions } from "@/libs/auth";
+import { getItems } from "./action";
 
 export async function generateMetadata() {
   return {
-    title: "Wishlists | Ecommerce Template",
+    title: "Wishlists | Fitness Ecommerce",
     description: `Wishlists at e-commerce template made by Marcos Cámara`,
   };
 }

@@ -109,7 +109,7 @@ export const Products = async ({
               </div>
               {!purchased && (
                 <div className="text-sm">
-                  {quantity ? (price * quantity).toFixed(2) : price} €
+                  {quantity ? (price * quantity).toFixed(2) : price} $
                 </div>
               )}
               {quantity !== undefined && <ProductCartInfo product={product} />}

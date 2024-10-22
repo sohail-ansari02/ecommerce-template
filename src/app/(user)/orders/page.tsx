@@ -1,15 +1,16 @@
-import Link from "next/link";
-import { format } from "date-fns";
 import { OrderDocument, OrdersDocument } from "@/types/types";
-import { getUserOrders } from "./action";
-import { Suspense } from "react";
-import { Loader } from "@/components/common/Loader";
 import { Session, getServerSession } from "next-auth";
+
+import Link from "next/link";
+import { Loader } from "@/components/common/Loader";
+import { Suspense } from "react";
 import { authOptions } from "@/libs/auth";
+import { format } from "date-fns";
+import { getUserOrders } from "./action";
 
 export async function generateMetadata() {
   return {
-    title: `Orders | Ecommerce Template`,
+    title: `Orders | Fitness Ecommerce`,
   };
 }
 
@@ -80,7 +81,7 @@ const Orders = async () => {
               "dd LLL yyyy"
             )} | ${(order.total_price / 100).toFixed(
               2
-            )}€ | Items: ${order.products.reduce(
+            )}$ | Items: ${order.products.reduce(
               (total, product) => total + product.quantity,
               0
             )} `}</h4>

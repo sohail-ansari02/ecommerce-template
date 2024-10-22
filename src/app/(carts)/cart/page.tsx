@@ -1,12 +1,13 @@
-import { Products } from "@/components/products/Products";
-import Link from "next/link";
-import { getItems } from "./action";
 import { Session, getServerSession } from "next-auth";
-import { authOptions } from "@/libs/auth";
-import { Suspense } from "react";
-import { Loader } from "@/components/common/Loader";
-import dynamic from "next/dynamic";
+
 import { EnrichedProducts } from "@/types/types";
+import Link from "next/link";
+import { Loader } from "@/components/common/Loader";
+import { Products } from "@/components/products/Products";
+import { Suspense } from "react";
+import { authOptions } from "@/libs/auth";
+import dynamic from "next/dynamic";
+import { getItems } from "./action";
 
 const ButtonCheckout = dynamic(
   () => import("../../../components/cart/ButtonCheckout"),
@@ -22,7 +23,7 @@ const ButtonCheckout = dynamic(
 
 export async function generateMetadata() {
   return {
-    title: "Cart | Ecommerce Template",
+    title: "Cart | Fitness Ecommerce",
     description: `Cart at e-commerce template made by Marcos Cámara`,
   };
 }
@@ -93,7 +94,7 @@ const ProductsCart = async ({ session }: { session: Session }) => {
           <div className="flex flex-col p-2.5 justify-center w-1/2 gap-2 text-center">
             <div className="flex gap-2.5 justify-center text-sm">
               <span>Total:</span>
-              <span>{totalPrice}€</span>
+              <span>{totalPrice}$</span>
             </div>
             <span className="text-xs">+ TAX INCL.</span>
           </div>

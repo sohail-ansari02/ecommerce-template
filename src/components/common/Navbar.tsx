@@ -1,13 +1,15 @@
 "use client";
 
-import Link from "next/link";
-import { useState } from "react";
-import { Session } from "next-auth";
-import { LinksDesktop } from "./LinksDesktop";
-import { UserMenu } from "./UserMenu";
-import SearchInput from "./SearchInput";
 import { Dialog, DialogTrigger } from "@/components/ui/dialog";
+import Image, { ImageLoader } from "next/image";
+
+import Link from "next/link";
+import { LinksDesktop } from "./LinksDesktop";
+import SearchInput from "./SearchInput";
+import { Session } from "next-auth";
+import { UserMenu } from "./UserMenu";
 import dynamic from "next/dynamic";
+import { useState } from "react";
 
 const EditProfile = dynamic(() => import("./EditProfile"), {
   ssr: false,
@@ -38,54 +40,55 @@ export const Navbar = ({ session, totalItemsCart, totalWishlists }: Navbar) => {
   ];
 
   const authLinks = () => {
-    if (session?.user) {
-      return (
-        <>
-          <li className="flex lg:hidden">
-            <Dialog>
-              <DialogTrigger asChild>
-                <button className="flex items-center w-full h-full px-4 py-2">
-                  <svg
-                    data-testid="geist-icon"
-                    height="16"
-                    strokeLinejoin="round"
-                    viewBox="0 0 16 16"
-                    width="16"
-                    className="mr-2"
-                    style={{ color: "currentColor" }}
-                  >
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M7.75 0C5.95507 0 4.5 1.45507 4.5 3.25V3.75C4.5 5.54493 5.95507 7 7.75 7H8.25C10.0449 7 11.5 5.54493 11.5 3.75V3.25C11.5 1.45507 10.0449 0 8.25 0H7.75ZM6 3.25C6 2.2835 6.7835 1.5 7.75 1.5H8.25C9.2165 1.5 10 2.2835 10 3.25V3.75C10 4.7165 9.2165 5.5 8.25 5.5H7.75C6.7835 5.5 6 4.7165 6 3.75V3.25ZM2.5 14.5V13.1709C3.31958 11.5377 4.99308 10.5 6.82945 10.5H9.17055C11.0069 10.5 12.6804 11.5377 13.5 13.1709V14.5H2.5ZM6.82945 9C4.35483 9 2.10604 10.4388 1.06903 12.6857L1 12.8353V13V15.25V16H1.75H14.25H15V15.25V13V12.8353L14.931 12.6857C13.894 10.4388 11.6452 9 9.17055 9H6.82945Z"
-                      fill="currentColor"
-                    ></path>
-                  </svg>
-                  <span>Edit profile</span>
-                </button>
-              </DialogTrigger>
-              <EditProfile />
-            </Dialog>
-          </li>
+    return '';
+    // if (session?.user) {
+    //   return (
+    //     <>
+    //       <li className="flex lg:hidden">
+    //         <Dialog>
+    //           <DialogTrigger asChild>
+    //             <button className="flex items-center w-full h-full px-4 py-2">
+    //               <svg
+    //                 data-testid="geist-icon"
+    //                 height="16"
+    //                 strokeLinejoin="round"
+    //                 viewBox="0 0 16 16"
+    //                 width="16"
+    //                 className="mr-2"
+    //                 style={{ color: "currentColor" }}
+    //               >
+    //                 <path
+    //                   fillRule="evenodd"
+    //                   clipRule="evenodd"
+    //                   d="M7.75 0C5.95507 0 4.5 1.45507 4.5 3.25V3.75C4.5 5.54493 5.95507 7 7.75 7H8.25C10.0449 7 11.5 5.54493 11.5 3.75V3.25C11.5 1.45507 10.0449 0 8.25 0H7.75ZM6 3.25C6 2.2835 6.7835 1.5 7.75 1.5H8.25C9.2165 1.5 10 2.2835 10 3.25V3.75C10 4.7165 9.2165 5.5 8.25 5.5H7.75C6.7835 5.5 6 4.7165 6 3.75V3.25ZM2.5 14.5V13.1709C3.31958 11.5377 4.99308 10.5 6.82945 10.5H9.17055C11.0069 10.5 12.6804 11.5377 13.5 13.1709V14.5H2.5ZM6.82945 9C4.35483 9 2.10604 10.4388 1.06903 12.6857L1 12.8353V13V15.25V16H1.75H14.25H15V15.25V13V12.8353L14.931 12.6857C13.894 10.4388 11.6452 9 9.17055 9H6.82945Z"
+    //                   fill="currentColor"
+    //                 ></path>
+    //               </svg>
+    //               <span>Edit profile</span>
+    //             </button>
+    //           </DialogTrigger>
+    //           <EditProfile />
+    //         </Dialog>
+    //       </li>
 
-          <li className="items-center justify-center hidden lg:flex">
-            <UserMenu fastSession={session} />
-          </li>
-        </>
-      );
-    } else {
-      return (
-        <li className="flex items-center justify-center">
-          <Link
-            href="/login"
-            onClick={() => setIsHeaderOpen(false)}
-            className="text-sm px-4 py-2 transition-all lg:text-[#A1A1A1] hover:text-[#EDEDED] font-medium"
-          >
-            Login
-          </Link>
-        </li>
-      );
-    }
+    //       <li className="items-center justify-center hidden lg:flex">
+    //         <UserMenu fastSession={session} />
+    //       </li>
+    //     </>
+    //   );
+    // } else {
+    //   return (
+    //     <li className="flex items-center justify-center">
+    //       <Link
+    //         href="/login"
+    //         onClick={() => setIsHeaderOpen(false)}
+    //         className="text-sm px-4 py-2 transition-all lg:text-[#A1A1A1] hover:text-[#EDEDED] font-medium"
+    //       >
+    //         Login
+    //       </Link>
+    //     </li>
+    //   );
+    // }
   };
 
   return (
@@ -114,7 +117,9 @@ export const Navbar = ({ session, totalItemsCart, totalWishlists }: Navbar) => {
       </button>
 
       <div
-        className={`fixed top-0 left-0 h-screen w-full bg-background-secondary py-6 px-3.5 xs:px-6 transition ease duration-200 z-20 translate-x-0 ${isHeaderOpen ? "translate-x-0" : "translate-x-hide"}`}
+        className={`fixed top-0 left-0 h-screen w-full bg-background-secondary py-6 px-3.5 xs:px-6 transition ease duration-200 z-20 translate-x-0 ${
+          isHeaderOpen ? "translate-x-0" : "translate-x-hide"
+        }`}
       >
         <ul className="flex justify-between text-sm gap-9">
           <li>
@@ -192,7 +197,17 @@ export const Navbar = ({ session, totalItemsCart, totalWishlists }: Navbar) => {
         </div>
       </div>
 
-      <ul className="justify-between hidden gap-2 text-sm lg:flex">
+      <ul className="justify-between items-center hidden gap-2 text-sm lg:flex">
+        
+        <Image
+          alt="logo"
+          src="/logo.webp"
+          className="flex"
+          width={90}
+          height={60}
+          priority={true}
+          sizes="(max-width: 640px) 100vw, (max-width: 1154px) 33vw, (max-width: 1536px) 25vw, 20vw"
+        />
         {authLinks()}
         <li>
           <LinksDesktop />
@@ -228,7 +243,7 @@ export const Navbar = ({ session, totalItemsCart, totalWishlists }: Navbar) => {
             </span>
           </Link>
         </li>
-        <li className="flex items-center justify-center">
+        {/* <li className="flex items-center justify-center">
           <Link
             href="/wishlist"
             aria-label="Products saved in whishlist"
@@ -251,7 +266,7 @@ export const Navbar = ({ session, totalItemsCart, totalWishlists }: Navbar) => {
               {totalWishlists || 0}
             </span>
           </Link>
-        </li>
+        </li> */}
       </ul>
     </header>
   );

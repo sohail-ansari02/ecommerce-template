@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const SearchInput = () => {
   const searchParams = useSearchParams();
@@ -14,7 +14,7 @@ const SearchInput = () => {
   }, []);
 
   return (
-    <div className="flex w-full border border-[#2E2E2E] rounded-md overflow-hidden">
+    <div className="flex flex-1 w-full border border-[#2E2E2E] rounded-md overflow-hidden">
       <span className="h-[40px] w-[40px] px-3 flex items-center justify-center">
         <svg
           data-testid="geist-icon"

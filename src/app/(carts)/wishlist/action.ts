@@ -15,7 +15,7 @@ import { revalidatePath } from "next/cache";
 export type Wishlists = {
   userId: string;
   items: Array<{
-    productId: Schema.Types.ObjectId;
+    productId: Schema.Types.ObjectId | number | string;
   }>;
 };
 
@@ -87,7 +87,7 @@ export async function getItems(userId: string) {
       color: "Black",
       category: "Jeans",
       image: ["/gada.webp"],
-      name: "Slim Fit Black Jeans",
+      name: "SGada",
       purchased: false,
       _id: Math.random(),
     },
@@ -100,7 +100,7 @@ export async function getItems(userId: string) {
       color: "White",
       category: "Socks",
       image: ["/gada.webp"],
-      name: "Cotton Ankle Socks",
+      name: "Gada",
       purchased: false,
       _id: Math.random(),
     },
@@ -113,7 +113,7 @@ export async function getItems(userId: string) {
       color: "Green",
       category: "Jackets",
       image: ["/gada.webp"],
-      name: "Waterproof Hiking Jacket",
+      name: "Gada",
       purchased: false,
       _id: Math.random(),
     },
@@ -126,7 +126,7 @@ export async function getItems(userId: string) {
       color: "Red",
       category: "Hats",
       image: ["/gada.webp"],
-      name: "Adjustable Baseball Cap",
+      name: "Gada",
       purchased: false,
       _id: Math.random(),
     },

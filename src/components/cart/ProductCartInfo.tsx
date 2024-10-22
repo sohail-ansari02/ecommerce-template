@@ -1,8 +1,9 @@
 "use client";
 
-import { useCallback } from "react";
-import { EnrichedProducts } from "@/types/types";
 import { addItem, delOneItem } from "@/app/(carts)/cart/action";
+
+import { EnrichedProducts } from "@/types/types";
+import { useCallback } from "react";
 
 const ProductCartInfo = ({ product }: { product: EnrichedProducts }) => {
   const {
@@ -28,7 +29,7 @@ const ProductCartInfo = ({ product }: { product: EnrichedProducts }) => {
     if (purchased) {
       return (
         <div className="text-sm">
-          {quantity ? (price * quantity).toFixed(2) : price}€
+          {quantity ? (price * quantity).toFixed(2) : price}$
         </div>
       );
     } else {

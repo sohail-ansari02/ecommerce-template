@@ -1,9 +1,10 @@
 import { fetchCheckoutData, sendEmail } from "@/helpers/checkoutFunctions";
+
 import { saveOrder } from "../orders/action";
 
 export async function generateMetadata() {
   return {
-    title: "Purchase Result | Ecommerce Template",
+    title: "Purchase Result | Fitness Ecommerce",
     description:
       "Result of the purchase in the test ecommerce created by Marcos Cámara",
   };

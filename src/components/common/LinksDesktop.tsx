@@ -25,31 +25,26 @@ export function LinksDesktop() {
               <li className="row-span-3">
                 <NavigationMenuLink asChild>
                   <Link
-                    className="flex flex-col justify-end w-full h-full p-6 no-underline rounded-md outline-none select-none from-muted/50 to-muted focus:shadow-md bg-center bg-[url('/main-image.webp')]"
+                    className="flex flex-col justify-end w-full h-full p-6 no-underline rounded-md outline-none select-none from-muted/50 to-muted focus:shadow-md bg-center bg-[url('/gada.webp')]"
                     href="/"
                   >
                     <div className="mt-4 mb-1 text-sm font-medium">
                       VIEW ALL
                     </div>
                     <p className="text-sm leading-tight text-muted-foreground">
-                      Discover wardrobe staples for every occasion.
+                      Discover Gada for exersise.
                     </p>
                   </Link>
                 </NavigationMenuLink>
               </li>
-              <ListItem href="/t-shirts" title="T-SHIRTS">
-                Our men&apos;s T-shirts offer timeless style in a range of
-                designs, colors, and textures. From classic to contemporary,
-                find the perfect tee for any occasion.
+              <ListItem href="/t-shirts" title="Indian">
+                Indian
               </ListItem>
-              <ListItem href="/pants" title="PANTS">
-                Explore essential men&apos;s pants for all occasions. From
-                classic chinos to modern joggers, find your perfect fit in a
-                variety of styles and colors.
+              <ListItem href="/pants" title="Traditional">
+                Traditional
               </ListItem>
-              <ListItem href="/sweatshirts" title="SWEATSHIRTS">
-                Much like the T-shirt, men&apos;s sweatshirts are far more than
-                a basic.
+              <ListItem href="/sweatshirts" title="Our Special">
+                Our Special
               </ListItem>
             </ul>
           </NavigationMenuContent>

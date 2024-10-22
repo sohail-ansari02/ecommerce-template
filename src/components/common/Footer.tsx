@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
 import Link from "next/link";
+import React from "react";
 
 export const Footer = () => {
   const linkStyles = "text-sm transition duration-150 ease hover:text-white";
@@ -115,7 +115,7 @@ export const Footer = () => {
                 href={`${process.env.NEXT_PUBLIC_APP_URL}/t-shirts`}
                 className={linkStyles}
               >
-                T-shirts
+                Gada
               </Link>
             </li>
             <li className={liStyles}>
@@ -123,7 +123,7 @@ export const Footer = () => {
                 href={`${process.env.NEXT_PUBLIC_APP_URL}/pants`}
                 className={linkStyles}
               >
-                Pants
+                Dumbell
               </Link>
             </li>
             <li className={liStyles}>
@@ -131,7 +131,7 @@ export const Footer = () => {
                 href={`${process.env.NEXT_PUBLIC_APP_URL}/sweatshirts`}
                 className={linkStyles}
               >
-                Sweatshirts
+                Carpet
               </Link>
             </li>
           </ul>

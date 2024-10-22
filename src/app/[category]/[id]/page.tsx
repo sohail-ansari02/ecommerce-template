@@ -1,13 +1,14 @@
-import { SingleProduct } from "@/components/products/SingleProduct";
-import { Products } from "@/components/products/Products";
 import { getProduct, getRandomProducts } from "@/app/actions";
+
 import { ProductDocument } from "@/types/types";
-import { getServerSession } from "next-auth/next";
-import { authOptions } from "@/libs/auth";
-import { Session } from "next-auth";
-import { Suspense } from "react";
 import ProductSkeleton from "@/components/skeletons/ProductSkeleton";
+import { Products } from "@/components/products/Products";
+import { Session } from "next-auth";
+import { SingleProduct } from "@/components/products/SingleProduct";
 import SingleProductSkeleton from "@/components/skeletons/SingleProductSkeleton";
+import { Suspense } from "react";
+import { authOptions } from "@/libs/auth";
+import { getServerSession } from "next-auth/next";
 
 type Props = {
   params: {
@@ -24,7 +25,7 @@ export async function generateMetadata({ params }: Props) {
   const capitalizedName = capitalizeFirstLetter(product.name);
 
   return {
-    title: `${capitalizedName} | Ecommerce Template`,
+    title: `${capitalizedName} | Fitness Ecommerce`,
     description: product.description,
   };
 }

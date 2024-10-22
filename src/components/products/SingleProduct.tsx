@@ -1,16 +1,18 @@
 "use client";
 
-import { ProductImages } from "@/components/products/ProductImages";
-import { ProductDocument, VariantsDocument } from "@/types/types";
-import { Session } from "next-auth";
-import { useState } from "react";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { ProductDocument, VariantsDocument } from "@/types/types";
+
 import AddToCart from "../cart/AddToCart";
+import { ProductImages } from "@/components/products/ProductImages";
+import { Session } from "next-auth";
+import { useState } from "react";
+
 interface SingleProduct {
   product: string;
   session: Session | null;
@@ -19,7 +21,7 @@ interface SingleProduct {
 export const SingleProduct = ({ product, session }: SingleProduct) => {
   const productPlainObject: ProductDocument = JSON.parse(product);
   const [selectedVariant, setSelectedVariant] = useState<VariantsDocument>(
-    productPlainObject.variants[0]
+    productPlainObject.variants?.[0]
   );
 
   if (!product) {
@@ -41,7 +43,7 @@ export const SingleProduct = ({ product, session }: SingleProduct) => {
             <h1 className="text-base font-semibold">
               {productPlainObject.name}
             </h1>
-            <span className="text-sm">{productPlainObject.price}€</span>
+            <span className="text-sm">{productPlainObject.price}$</span>
             <p className="text-sm">{productPlainObject.description}</p>
           </div>
 

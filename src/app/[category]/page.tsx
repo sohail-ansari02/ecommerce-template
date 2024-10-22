@@ -1,7 +1,7 @@
-import { Products } from "@/components/products/Products";
-import { getCategoryProducts } from "../actions";
 import ProductSkeleton from "@/components/skeletons/ProductSkeleton";
+import { Products } from "@/components/products/Products";
 import { Suspense } from "react";
+import { getCategoryProducts } from "../actions";
 
 type Props = {
   params: {
@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props) {
   const capitalizedCategory = capitalizeFirstLetter(params.category);
 
   return {
-    title: `${capitalizedCategory} | Ecommerce Template`,
+    title: `${capitalizedCategory} | Fitness Ecommerce`,
     description: `${capitalizedCategory} category at e-commerce template made by Marcos Cámara`,
   };
 }
