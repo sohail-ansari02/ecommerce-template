@@ -99,7 +99,8 @@ const ProductsCart = async ({ session }: { session: Session }) => {
             <span className="text-xs">+ TAX INCL.</span>
           </div>
           <div className="w-1/2 border-l border-solid bg-background-secondary border-border-primary">
-            <ButtonCheckout session={session} cartWithProducts={filteredCart} />
+            {/* <ButtonCheckout session={session} cartWithProducts={filteredCart} /> */}
+            <ButtonCheckout session={session} cartWithProducts={[]} />
           </div>
         </div>
       </div>
