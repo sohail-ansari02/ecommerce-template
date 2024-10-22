@@ -1,9 +1,7 @@
 "use client";
 
 import * as React from "react";
-import Link from "next/link";
 
-import { cn } from "@/libs/utils";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -12,6 +10,9 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+
+import Link from "next/link";
+import { cn } from "@/libs/utils";
 
 export function LinksDesktop() {
   return (

@@ -23,8 +23,8 @@ export interface EnrichedProducts {
   color: string;
   size: string;
   quantity: number;
-  productId: Schema.Types.ObjectId;
-  _id: Schema.Types.ObjectId;
+  productId: Schema.Types.ObjectId | string | number;
+  _id: Schema.Types.ObjectId | string | number;
   variantId: string;
 }
 

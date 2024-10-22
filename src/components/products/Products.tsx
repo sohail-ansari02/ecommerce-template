@@ -3,6 +3,7 @@ import { Wishlists, getTotalWishlist } from "@/app/(carts)/wishlist/action";
 
 import { EnrichedProducts } from "@/types/types";
 import { Images } from "./Images";
+import { JsonParse } from "@/libs/utils";
 import Link from "next/link";
 import { Skeleton } from "../ui/skeleton";
 import { authOptions } from "@/libs/auth";
@@ -54,7 +55,8 @@ export const Products = async ({
           price,
           purchased,
         } = product;
-        const productLink = `/${category}/${quantity ? productId : _id}`;
+        // const productLink = `/${category}/${quantity ? productId : _id}`;
+        const productLink = `/${category}/${productId}`;
         const containerClassname = [
           "flex justify-between border border-solid border-border-primary rounded-md overflow-hidden",
           extraClassname === "cart-ord-mobile"
@@ -76,15 +78,7 @@ export const Products = async ({
         // return product.name;
         return (
           <div className={containerClassname} key={index}>
-            <Images
-                image={image}
-                name={name}
-                width={280}
-                height={425}
-                priority={index === 0}
-                sizes="(max-width: 640px) 100vw, (max-width: 1154px) 33vw, (max-width: 1536px) 25vw, 20vw"
-              />
-            {/* <Link href={productLink} className={linkClassname}>
+            <Link href={productLink} className={linkClassname}>
               <Images
                 image={image}
                 name={name}
@@ -93,8 +87,8 @@ export const Products = async ({
                 priority={index === 0}
                 sizes="(max-width: 640px) 100vw, (max-width: 1154px) 33vw, (max-width: 1536px) 25vw, 20vw"
               />
-            </Link> */}
-            {/* <div className={infoClassname}>
+            </Link>
+            <div className={infoClassname}>
               <div className="flex justify-between w-full">
                 <Link href={productLink} className="w-10/12">
                   <h2 className="text-sm font-semibold truncate">{name}</h2>
@@ -119,7 +113,7 @@ export const Products = async ({
                 </div>
               )}
               {quantity !== undefined && <ProductCartInfo product={product} />}
-            </div> */}
+            </div>
           </div>
         );
       })}
