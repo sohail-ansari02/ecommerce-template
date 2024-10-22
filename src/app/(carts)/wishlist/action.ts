@@ -1,9 +1,10 @@
 "use server";
 
+import {  } from "@/libs/utils";
+
 import mongoose, { Schema } from "mongoose";
 
 import { EnrichedProducts } from "@/types/types";
-import { JsonParse } from "@/libs/utils";
 import { Product } from "@/models/Products";
 import { Session } from "next-auth";
 import { authOptions } from "@/libs/auth";
@@ -132,7 +133,7 @@ export async function getItems(userId: string) {
     },
   ];
 
-  return JsonParse(mockUpdatedCart);
+return (mockUpdatedCart);
 
   // connectDB();
 
@@ -184,7 +185,7 @@ export async function getTotalWishlist() {
     ],
   };
 
-  return JsonParse(mockWishlists);
+  return (mockWishlists);
   // const session: Session | null = await getServerSession(authOptions);
   // const wishlists: Wishlists | null = await kv.get(
   //   `wishlist-${session?.user._id}`,
