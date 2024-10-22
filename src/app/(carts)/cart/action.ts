@@ -220,7 +220,7 @@ export async function addItem(
 }
 
 export async function delItem(
-  productId: Schema.Types.ObjectId,
+  productId: Schema.Types.ObjectId | number | string,
   size: string,
   variantId: string
 ) {
