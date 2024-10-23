@@ -277,7 +277,7 @@ export const getProduct = async (_id: string) => {
       {
         "priceId": "variant-001",
         "color": "Black",
-        "images": ["/gada.webp"]
+        "images": ["/gada.webp","/gada.webp"]
       }
     ],
     "quantity": 100,
