@@ -40,7 +40,7 @@ export const Navbar = ({ session, totalItemsCart, totalWishlists }: Navbar) => {
   ];
 
   const authLinks = () => {
-    return '';
+    return "";
     // if (session?.user) {
     //   return (
     //     <>
@@ -198,16 +198,20 @@ export const Navbar = ({ session, totalItemsCart, totalWishlists }: Navbar) => {
       </div>
 
       <ul className="justify-between items-center hidden gap-2 text-sm lg:flex">
-        
-        <Image
-          alt="logo"
-          src="/logo.webp"
-          className="flex"
-          width={90}
-          height={60}
-          priority={true}
-          sizes="(max-width: 640px) 100vw, (max-width: 1154px) 33vw, (max-width: 1536px) 25vw, 20vw"
-        />
+        <Link
+          href="/"
+          aria-label="Navigate to homepage with logo"
+          className="aspect-square w-20 h-auto"
+        >
+          <Image
+            alt="Company logo"
+            src="/logo.webp"
+            className="flex"
+            width={90}
+            priority
+            sizes="(max-width: 640px) 100vw, (max-width: 1154px) 33vw, (max-width: 1536px) 25vw, 20vw"
+          />
+        </Link>
         {authLinks()}
         <li>
           <LinksDesktop />
