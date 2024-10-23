@@ -18,7 +18,9 @@ height dropdown in inches
 information in WYSGI editor
 
 -search products by name
+
 -carousle
+
 -contact form
 name
 email
