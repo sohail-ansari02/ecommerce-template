@@ -3,7 +3,7 @@ import { Session, getServerSession } from "next-auth";
 import { EnrichedProducts } from "@/types/types.old";
 import Link from "next/link";
 import { Loader } from "@/components/common/Loader";
-import { Products } from "@/components/products/Products";
+import { ProductsOld } from "@/components/products/Products";
 import { Suspense } from "react";
 import { authOptions } from "@/libs/auth";
 import dynamic from "next/dynamic";
@@ -88,7 +88,7 @@ const ProductsCart = async ({ session }: { session: Session }) => {
         <h2 className="mb-5 text-xl font-bold sm:text-2xl">
           YOUR SHOPPING CART
         </h2>
-        <Products products={filteredCart} extraClassname={"cart-ord-mobile"} />
+        <ProductsOld products={filteredCart} extraClassname={"cart-ord-mobile"} />
 
         <div className="fixed left-[50%] translate-x-[-50%] bottom-4 w-[90%] z-10 sm:w-[360px] rounded-xl overflow-hidden flex bg-black border border-solid border-border-primary h-min">
           <div className="flex flex-col p-2.5 justify-center w-1/2 gap-2 text-center">

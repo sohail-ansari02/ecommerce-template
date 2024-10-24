@@ -1,6 +1,6 @@
 import { EnrichedProducts } from "@/types/types.old";
 import ProductSkeleton from "@/components/skeletons/ProductSkeleton";
-import { Products } from "@/components/products/Products";
+import { ProductsOld } from "@/components/products/Products";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Suspense } from "react";
 import { format } from "date-fns";
@@ -48,7 +48,7 @@ const OrderProducts = async ({ id }: { id: string }) => {
     return (
       <div className="flex flex-col-reverse flex-wrap justify-between pt-12 sm:flex-row gap-11 sm:gap-8">
         <div className="grow-999 basis-0">
-          <Products products={allProducts} extraClassname={"cart-ord-mobile"} />
+          <ProductsOld products={allProducts} extraClassname={"cart-ord-mobile"} />
         </div>
 
         <div className="h-full grow sm:basis-800 sm:sticky top-8">

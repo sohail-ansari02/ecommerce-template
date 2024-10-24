@@ -2,7 +2,7 @@ import { Session, getServerSession } from "next-auth";
 
 import Link from "next/link";
 import { Loader } from "@/components/common/Loader";
-import { Products } from "@/components/products/Products";
+import { ProductsOld } from "@/components/products/Products";
 import { Suspense } from "react";
 import { authOptions } from "@/libs/auth";
 import { getItems } from "./action";
@@ -54,7 +54,7 @@ const ProductsWishlists = async ({ session }: { session: Session }) => {
     return (
       <div className="pt-12">
         <h2 className="mb-5 text-xl font-bold sm:text-2xl">YOUR WISHLISTS</h2>
-        <Products
+        <ProductsOld
           products={filteredWishlist}
           extraClassname={"colums-mobile"}
         />

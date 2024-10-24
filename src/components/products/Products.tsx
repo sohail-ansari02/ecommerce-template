@@ -21,7 +21,7 @@ const ProductCartInfo = dynamic(() => import("../cart/ProductCartInfo"), {
   loading: () => <Skeleton className="w-24 h-8" />,
 });
 
-export const Products = async ({
+export const ProductsOld = async ({
   products,
   extraClassname = "",
 }: {

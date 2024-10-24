@@ -1,6 +1,6 @@
 import { EnrichedProducts, ProductDocument } from "@/types/types.old";
 
-import { Products } from "@/components/products/Products";
+import { ProductsOld } from "@/components/products/Products";
 import { getAllProductsOld } from "../actions";
 
 interface SearchProps {
@@ -27,7 +27,7 @@ const Search: React.FC<SearchProps> = async ({ searchParams }) => {
   return (
     <section className="pt-14">
       {filteredProducts.length > 0 ? (
-        <Products products={filteredProducts} extraClassname="" />
+        <ProductsOld products={filteredProducts} extraClassname="" />
       ) : (
         <h3 className="text-sm text-center">
           No products found for &quot;{searchParams.q}&quot;

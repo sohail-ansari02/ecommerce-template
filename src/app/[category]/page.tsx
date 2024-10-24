@@ -1,5 +1,5 @@
 import ProductSkeleton from "@/components/skeletons/ProductSkeleton";
-import { Products } from "@/components/products/Products";
+import { ProductsOld } from "@/components/products/Products";
 import { Suspense } from "react";
 import { getCategoryProducts } from "../actions";
 
@@ -37,7 +37,7 @@ const CategoryPage = async ({ params }: Props) => {
 const CategoryProducts = async ({ category }: { category: string }) => {
   const products = await getCategoryProducts(category);
 
-  return <Products products={products} extraClassname="" />;
+  return <ProductsOld products={products} extraClassname="" />;
 };
 
 export default CategoryPage;

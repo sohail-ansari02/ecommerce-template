@@ -1,7 +1,7 @@
 import { getAllProducts, getAllProductsOld } from "./actions";
 
 import ProductSkeleton from "@/components/skeletons/ProductSkeleton";
-import { Products } from "../components/products/Products";
+import { ProductsOld } from "../components/products/Products";
 import { Suspense } from "react";
 
 const Home = async () => {
@@ -17,8 +17,9 @@ const Home = async () => {
 };
 
 const AllProducts = async () => {
-  const products = await getAllProductsOld();
-  return <Products products={products} extraClassname="" />;
+  const productsOld = await getAllProductsOld();
+  const products = await getAllProducts();
+  return <ProductsOld products={productsOld} extraClassname="" />;
 };
 
 export default Home;

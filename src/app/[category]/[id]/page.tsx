@@ -2,7 +2,7 @@ import { getProduct, getRandomProducts } from "@/app/actions";
 
 import { ProductDocument } from "@/types/types.old";
 import ProductSkeleton from "@/components/skeletons/ProductSkeleton";
-import { Products } from "@/components/products/Products";
+import { ProductsOld } from "@/components/products/Products";
 import { Session } from "next-auth";
 import { SingleProduct } from "@/components/products/SingleProduct";
 import SingleProductSkeleton from "@/components/skeletons/SingleProductSkeleton";
@@ -65,7 +65,7 @@ const AllProducts = async ({ id }: { id: string }) => {
         YOU MIGHT ALSO LIKE...
       </h2>
 
-      <Products products={randomProducts} extraClassname={"colums-mobile"} />
+      <ProductsOld products={randomProducts} extraClassname={"colums-mobile"} />
     </>
   );
 };
