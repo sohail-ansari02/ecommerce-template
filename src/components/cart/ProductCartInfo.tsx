@@ -2,7 +2,7 @@
 
 import { addItem, delOneItem } from "@/app/(carts)/cart/action";
 
-import { EnrichedProducts } from "@/types/types";
+import { EnrichedProducts } from "@/types/types.old";
 import { useCallback } from "react";
 
 const ProductCartInfo = ({ product }: { product: EnrichedProducts }) => {

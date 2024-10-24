@@ -1,11 +1,12 @@
 "use client";
 
-import axios from "axios";
-import { ItemDocument } from "@/types/types";
-import { useTransition, useCallback, useMemo } from "react";
+import { useCallback, useMemo, useTransition } from "react";
+
+import { ItemDocument } from "@/types/types.old";
 import { Loader } from "../common/Loader";
-import { toast } from "sonner";
 import { Session } from "next-auth";
+import axios from "axios";
+import { toast } from "sonner";
 
 interface ButtonCheckoutProps {
   cartWithProducts: ItemDocument[];

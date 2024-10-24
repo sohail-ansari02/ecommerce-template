@@ -1,14 +1,14 @@
 import {
-  calculateExpectedDeliveryDate,
-  generateRandomOrderNumber,
-} from "@/helpers/orderModel";
-import {
   AddressDocument,
   OrderDocument,
   OrdersDocument,
   ProductsDocument,
-} from "@/types/types";
+} from "@/types/types.old";
 import { Schema, model, models } from "mongoose";
+import {
+  calculateExpectedDeliveryDate,
+  generateRandomOrderNumber,
+} from "@/helpers/orderModel";
 
 const ProductsSchema = new Schema<ProductsDocument>({
   productId: {

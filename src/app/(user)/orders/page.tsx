@@ -1,4 +1,4 @@
-import { OrderDocument, OrdersDocument } from "@/types/types";
+import { OrderDocument, OrdersDocument } from "@/types/types.old";
 import { Session, getServerSession } from "next-auth";
 
 import Link from "next/link";

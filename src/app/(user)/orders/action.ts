@@ -1,20 +1,21 @@
 "use server";
 
-import { connectDB } from "@/libs/mongodb";
-import { Orders } from "@/models/Orders";
-import { getServerSession } from "next-auth/next";
-import { authOptions } from "@/libs/auth";
-import { Session } from "next-auth";
 import {
   EnrichedProducts,
   OrderDocument,
   OrdersDocument,
   ProductsDocument,
   VariantsDocument,
-} from "@/types/types";
-import { Product } from "@/models/Products";
-import Stripe from "stripe";
+} from "@/types/types.old";
 import { emptyCart, getItems } from "@/app/(carts)/cart/action";
+
+import { Orders } from "@/models/Orders";
+import { Product } from "@/models/Products";
+import { Session } from "next-auth";
+import Stripe from "stripe";
+import { authOptions } from "@/libs/auth";
+import { connectDB } from "@/libs/mongodb";
+import { getServerSession } from "next-auth/next";
 
 connectDB();
 

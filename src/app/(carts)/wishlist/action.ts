@@ -4,7 +4,7 @@ import {  } from "@/libs/utils";
 
 import mongoose, { Schema } from "mongoose";
 
-import { EnrichedProducts } from "@/types/types";
+import { EnrichedProducts } from "@/types/types.old";
 import { Product } from "@/models/Products";
 import { Session } from "next-auth";
 import { authOptions } from "@/libs/auth";

@@ -1,6 +1,6 @@
 import { getProduct, getRandomProducts } from "@/app/actions";
 
-import { ProductDocument } from "@/types/types";
+import { ProductDocument } from "@/types/types.old";
 import ProductSkeleton from "@/components/skeletons/ProductSkeleton";
 import { Products } from "@/components/products/Products";
 import { Session } from "next-auth";

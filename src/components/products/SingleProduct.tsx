@@ -6,7 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { ProductDocument, VariantsDocument } from "@/types/types";
+import { ProductDocument, VariantsDocument } from "@/types/types.old";
 
 import AddToCart from "../cart/AddToCart";
 import { ProductImages } from "@/components/products/ProductImages";

@@ -1,13 +1,14 @@
 "use client";
 
-import { Skeleton } from "../ui/skeleton";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+
 import { Images } from "./Images";
-import { VariantsDocument } from "@/types/types";
+import { Skeleton } from "../ui/skeleton";
+import { VariantsDocument } from "@/types/types.old";
 
 interface ProductImages {
   name: string;

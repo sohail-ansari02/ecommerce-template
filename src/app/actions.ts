@@ -2,7 +2,7 @@
 
 import {  } from "@/libs/utils";
 
-import { EnrichedProducts, ProductDocument } from "@/types/types";
+import { EnrichedProducts, ProductDocument } from "@/types/types.old";
 
 import { Product } from "@/models/Products";
 import { Schema } from "mongoose";

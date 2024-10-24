@@ -1,6 +1,6 @@
 "use server";
 
-import { EnrichedProducts, VariantsDocument } from "@/types/types";
+import { EnrichedProducts, VariantsDocument } from "@/types/types.old";
 
 import { Product } from "@/models/Products";
 import { Schema } from "mongoose";

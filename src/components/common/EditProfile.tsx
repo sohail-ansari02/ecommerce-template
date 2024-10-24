@@ -5,12 +5,12 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { useEffect, useState } from "react";
 
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { UserDocument } from "@/types/types";
+import { UserDocument } from "@/types/types.old";
 import { useSession } from "next-auth/react";
-import { useEffect, useState } from "react";
 
 export default function EditProfile() {
   const [user, setUser] = useState<UserDocument>({} as UserDocument);

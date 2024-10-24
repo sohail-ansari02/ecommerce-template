@@ -1,5 +1,5 @@
-import { ProductDocument, VariantsDocument } from "@/types/types";
-import mongoose, { model, Model, Schema } from "mongoose";
+import { ProductDocument, VariantsDocument } from "@/types/types.old";
+import mongoose, { Model, Schema, model } from "mongoose";
 
 const VariantsSchema = new Schema<VariantsDocument>({
   priceId: {

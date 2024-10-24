@@ -1,8 +1,8 @@
 "use client";
 
-import { useCallback } from "react";
+import { EnrichedProducts } from "@/types/types.old";
 import { delItem } from "@/app/(carts)/cart/action";
-import { EnrichedProducts } from "@/types/types";
+import { useCallback } from "react";
 
 const DeleteButton = ({ product }: { product: EnrichedProducts }) => {
   const { productId, size, variantId } = product;

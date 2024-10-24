@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useTransition, useCallback } from "react";
-import { ProductDocument, VariantsDocument } from "@/types/types";
-import { colorMapping } from "@/helpers/colorMapping";
-import { addItem } from "@/app/(carts)/cart/action";
+import { ProductDocument, VariantsDocument } from "@/types/types.old";
+import { useCallback, useState, useTransition } from "react";
+
 import { Loader } from "../common/Loader";
 import { Session } from "next-auth";
+import { addItem } from "@/app/(carts)/cart/action";
+import { colorMapping } from "@/helpers/colorMapping";
 import { toast } from "sonner";
 
 interface AddToCartProps {

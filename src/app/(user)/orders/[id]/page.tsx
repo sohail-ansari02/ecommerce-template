@@ -1,4 +1,4 @@
-import { EnrichedProducts } from "@/types/types";
+import { EnrichedProducts } from "@/types/types.old";
 import ProductSkeleton from "@/components/skeletons/ProductSkeleton";
 import { Products } from "@/components/products/Products";
 import { Skeleton } from "@/components/ui/skeleton";

@@ -1,6 +1,6 @@
 import { Session, getServerSession } from "next-auth";
 
-import { EnrichedProducts } from "@/types/types";
+import { EnrichedProducts } from "@/types/types.old";
 import Link from "next/link";
 import { Loader } from "@/components/common/Loader";
 import { Products } from "@/components/products/Products";

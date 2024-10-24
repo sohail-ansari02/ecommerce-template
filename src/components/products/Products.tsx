@@ -1,7 +1,7 @@
 import { Session, getServerSession } from "next-auth";
 import { Wishlists, getTotalWishlist } from "@/app/(carts)/wishlist/action";
 
-import { EnrichedProducts } from "@/types/types";
+import { EnrichedProducts } from "@/types/types.old";
 import { Images } from "./Images";
 import { JsonParse } from "@/libs/utils";
 import Link from "next/link";

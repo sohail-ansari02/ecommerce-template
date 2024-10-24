@@ -1,6 +1,7 @@
+import { EnrichedProducts, ProductDocument } from "@/types/types.old";
+
 import { Products } from "@/components/products/Products";
 import { getAllProducts } from "../actions";
-import { EnrichedProducts, ProductDocument } from "@/types/types";
 
 interface SearchProps {
   searchParams: { [key: string]: string | undefined };
