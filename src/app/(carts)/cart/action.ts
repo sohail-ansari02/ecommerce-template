@@ -8,6 +8,7 @@ import { Session } from "next-auth";
 import { authOptions } from "@/libs/auth";
 import { connectDB } from "@/libs/mongodb";
 import { getServerSession } from "next-auth/next";
+import { iProduct } from "@/types/types";
 import { kv } from "@vercel/kv";
 import { revalidatePath } from "next/cache";
 
@@ -220,6 +221,31 @@ export async function addItem(
 }
 
 export async function delItem(
+  id: Pick<iProduct, '_id'>['_id'],
+) {
+  return;
+  // const session: Session | null = await getServerSession(authOptions);
+  // const userId = session?.user._id;
+  // let cart: Cart | null = await kv.get(`cart-${userId}`);
+
+  // if (cart && cart.items) {
+  //   const updatedCart = {
+  //     userId: userId,
+  //     items: cart.items.filter(
+  //       (item) =>
+  //         !(
+  //           item.productId === productId &&
+  //           item.variantId === variantId &&
+  //           item.size === size
+  //         )
+  //     ),
+  //   };
+
+  //   await kv.set(`cart-${userId}`, updatedCart);
+  //   revalidatePath("/cart");
+  // }
+}
+export async function delItemOld(
   productId: Schema.Types.ObjectId | number | string,
   size: string,
   variantId: string

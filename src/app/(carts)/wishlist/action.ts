@@ -198,7 +198,7 @@ export async function getTotalWishlist() {
   // return wishlists;
 }
 
-export async function delItem(productId: Schema.Types.ObjectId) {
+export async function delItemOld(productId: Schema.Types.ObjectId) {
   const session: Session | null = await getServerSession(authOptions);
   const userId = session?.user._id;
 

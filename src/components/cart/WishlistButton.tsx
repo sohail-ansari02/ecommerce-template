@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useMemo, useCallback } from "react";
-import { Wishlists, delItem, addItem } from "@/app/(carts)/wishlist/action";
+import React, { useCallback, useMemo } from "react";
+import { Wishlists, addItem, delItemOld } from "@/app/(carts)/wishlist/action";
+
 import { Schema } from "mongoose";
 import { Session } from "next-auth";
 import { toast } from "sonner";
@@ -36,7 +37,7 @@ const WishlistButton = ({
   const handleFavorites = useCallback(async () => {
     if (session?.user?._id) {
       if (isFavorite) {
-        await delItem(id);
+        await delItemOld(id);
       } else {
         await addItem(id);
       }
