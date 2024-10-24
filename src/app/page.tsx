@@ -19,7 +19,7 @@ const Home = async () => {
 const AllProducts = async () => {
   const productsOld = await getAllProductsOld();
   const products = await getAllProducts();
-  return <Products products={products} extraClassname="" />;
+  return <Products products={products} extraClassname="" showDeleteBtn={false}  />;
   // return <ProductsOld products={productsOld} extraClassname="" />;
 };
 

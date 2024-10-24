@@ -126,9 +126,11 @@ export const ProductsOld = async ({
 export const Products = async ({
   products,
   extraClassname = "",
+  showDeleteBtn = false
 }: {
   products: iProduct[];
   extraClassname: string;
+  showDeleteBtn: boolean
 }) => {
   const session: Session | null = await getServerSession(authOptions);
   // const hasMissingQuantity = false;// products.some((product) => !product.quantity);
@@ -195,10 +197,11 @@ export const Products = async ({
                 <Link href={productLink} className="w-10/12">
                   <h2 className="text-sm font-semibold truncate">{name}</h2>
                 </Link>
-                {quantity > 1 ? (
-                  <span className="text-sm">{quantity}</span>
-                ) : (
+                {quantity > 0 && showDeleteBtn ? (
                   <DeleteButton product={product} />
+                ) : (
+                  ''
+                  // <span className="text-sm">{quantity}</span>
                 )}
               </div>
 
@@ -215,7 +218,7 @@ export const Products = async ({
                 )}
               </div>
 
-              {quantity !== undefined && <ProductCartInfo product={product} />}
+              {quantity > 0 && <ProductCartInfo product={product} />}
             </div>
           </div>
         );

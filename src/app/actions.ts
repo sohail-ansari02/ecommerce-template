@@ -20,6 +20,7 @@ export const getAllProducts = async () => {
       price: 49.99,
       onSale: false,
       quantity: 0,
+      addedToCart: false,
     },
     {
       _id: 2,
@@ -30,6 +31,7 @@ export const getAllProducts = async () => {
       onSale: true,
       oldPrice: 74.99,
       quantity: 0,
+      addedToCart: false,
     },
     {
       _id: 3,
@@ -39,6 +41,7 @@ export const getAllProducts = async () => {
       price: 34.99,
       onSale: false,
       quantity: 0,
+      addedToCart: false,
     },
     {
       _id: 4,
@@ -49,6 +52,7 @@ export const getAllProducts = async () => {
       onSale: true,
       oldPrice: 94.99,
       quantity: 0,
+      addedToCart: false,
     },
     {
       _id: 5,
@@ -58,6 +62,7 @@ export const getAllProducts = async () => {
       price: 119.99,
       onSale: false,
       quantity: 0,
+      addedToCart: false,
     },
     {
       _id: 6,
@@ -67,6 +72,7 @@ export const getAllProducts = async () => {
       price: 44.99,
       onSale: false,
       quantity: 0,
+      addedToCart: false,
     },
   ];
 

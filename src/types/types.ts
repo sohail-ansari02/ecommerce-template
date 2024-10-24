@@ -10,4 +10,5 @@ export interface iProduct {
 
   weight?: number;
   height?: number;
+  addedToCart: boolean;
 }
