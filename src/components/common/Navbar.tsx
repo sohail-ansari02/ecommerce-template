@@ -208,6 +208,7 @@ export const Navbar = ({ session, totalItemsCart, totalWishlists }: Navbar) => {
             src="/logo.webp"
             className="flex"
             width={90}
+            height={90}
             priority
             sizes="(max-width: 640px) 100vw, (max-width: 1154px) 33vw, (max-width: 1536px) 25vw, 20vw"
           />
