@@ -7,4 +7,7 @@ export interface iProduct {
   onSale: boolean;
   oldPrice?: number; //(only show on sale)
   quantity: number; // cart quantity
+
+  weight?: number;
+  height?: number;
 }

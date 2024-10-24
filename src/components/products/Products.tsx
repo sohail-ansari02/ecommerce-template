@@ -115,7 +115,7 @@ export const ProductsOld = async ({
                   {quantity ? (price * quantity).toFixed(2) : price} $
                 </div>
               )}
-              {quantity !== undefined && <ProductCartInfo product={product} />}
+              {/* {quantity !== undefined && <ProductCartInfo product={product} />} */}
             </div>
           </div>
         );
@@ -215,7 +215,7 @@ export const Products = async ({
                 )}
               </div>
 
-              {/* {quantity !== undefined && <ProductCartInfo product={product} />} */}
+              {quantity !== undefined && <ProductCartInfo product={product} />}
             </div>
           </div>
         );

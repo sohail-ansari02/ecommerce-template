@@ -156,12 +156,71 @@ export async function getTotalItems(session: Session | null) {
   // return total;
 }
 
-export async function addItem(
+export async function addItemOld(
   category: string,
   productId: Schema.Types.ObjectId,
   size: string,
   variantId: string,
   price: number
+) {
+
+  return;
+  // const session: Session | null = await getServerSession(authOptions);
+
+  // if (!session?.user._id) {
+  //   console.error(`User Id not found.`);
+  //   return;
+  // }
+
+  // const userId = session.user._id;
+  // let cart: Cart | null = await kv.get(`cart-${userId}`);
+
+  // let myCart = {} as Cart;
+
+  // if (!cart || !cart.items) {
+  //   myCart = {
+  //     userId: userId,
+  //     items: [
+  //       {
+  //         productId: productId,
+  //         size: size,
+  //         variantId: variantId,
+  //         quantity: 1,
+  //         price: price,
+  //       },
+  //     ],
+  //   };
+  // } else {
+  //   let itemFound = false;
+
+  //   myCart.items = cart.items.map((item) => {
+  //     if (
+  //       item.productId === productId &&
+  //       item.variantId === variantId &&
+  //       item.size === size
+  //     ) {
+  //       itemFound = true;
+  //       item.quantity += 1;
+  //     }
+  //     return item;
+  //   }) as Cart["items"];
+
+  //   if (!itemFound) {
+  //     myCart.items.push({
+  //       productId: productId,
+  //       size: size,
+  //       variantId: variantId,
+  //       quantity: 1,
+  //       price: price,
+  //     });
+  //   }
+  // }
+
+  // await kv.set(`cart-${userId}`, myCart);
+  // revalidatePath(`/${category}/${productId}`);
+}
+export async function addItem(
+  product: iProduct
 ) {
 
   return;
@@ -274,6 +333,44 @@ export async function delItemOld(
 }
 
 export async function delOneItem(
+  product: iProduct
+) {
+
+  return
+  // try {
+  //   const session: Session | null = await getServerSession(authOptions);
+  //   const userId = session?.user._id;
+  //   let cart: Cart | null = await kv.get(`cart-${userId}`);
+
+  //   if (cart && cart.items) {
+  //     const updatedCart = {
+  //       userId: userId,
+  //       items: cart.items
+  //         .map((item) => {
+  //           if (
+  //             item.productId === productId &&
+  //             item.variantId === variantId &&
+  //             item.size === size
+  //           ) {
+  //             if (item.quantity > 1) {
+  //               item.quantity -= 1;
+  //             } else {
+  //               return null;
+  //             }
+  //           }
+  //           return item;
+  //         })
+  //         .filter(Boolean) as Cart["items"],
+  //     };
+
+  //     await kv.set(`cart-${userId}`, updatedCart);
+  //     revalidatePath("/cart");
+  //   }
+  // } catch (error) {
+  //   console.error("Error in delOneItem:", error);
+  // }
+}
+export async function delOneItemOld(
   productId: Schema.Types.ObjectId,
   size: string,
   variantId: string
