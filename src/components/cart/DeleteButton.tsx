@@ -4,7 +4,7 @@ import { EnrichedProducts } from "@/types/types.old";
 import { delItem } from "@/app/(carts)/cart/action";
 import { useCallback } from "react";
 
-const DeleteButton = ({ product }: { product: EnrichedProducts }) => {
+const DeleteButtonOld = ({ product }: { product: EnrichedProducts }) => {
   const { productId, size, variantId } = product;
 
   const handleDelete = useCallback(() => {
@@ -36,4 +36,4 @@ const DeleteButton = ({ product }: { product: EnrichedProducts }) => {
   );
 };
 
-export default DeleteButton;
+export default DeleteButtonOld;

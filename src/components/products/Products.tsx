@@ -14,7 +14,7 @@ const WishlistButton = dynamic(() => import("../cart/WishlistButton"), {
   loading: () => <Skeleton className="w-5 h-5" />,
 });
 
-const DeleteButton = dynamic(() => import("../cart/DeleteButton"), {
+const DeleteButtonOld = dynamic(() => import("../cart/DeleteButton"), {
   loading: () => <Skeleton className="w-5 h-5" />,
 });
 
@@ -98,7 +98,7 @@ export const ProductsOld = async ({
                   purchased ? (
                     quantity > 1 && <span className="text-sm">{quantity}</span>
                   ) : (
-                    <DeleteButton product={product} />
+                    <DeleteButtonOld product={product} />
                   )
                 ) : (
                   <WishlistButton
@@ -196,7 +196,7 @@ export const Products = async ({
                 {quantity > 1 ? (
                   <span className="text-sm">{quantity}</span>
                 ) : (
-                  <DeleteButton product={product} />
+                  // <DeleteButtonOld product={product} />
                   <button>delet btn</button>
                 )}
               </div>
