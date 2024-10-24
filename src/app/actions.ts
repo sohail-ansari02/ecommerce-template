@@ -14,7 +14,7 @@ export const getAllProducts = async () => {
   const mockProductList: iProduct[] = [
     {
       _id: 1,
-      name: "Steel Mace Gada - 5kg",
+      name: "Steel Mace Gada",
       category: "Steel Mace",
       images: ["/gada.webp", "/gada.webp"],
       price: 49.99,
@@ -24,7 +24,7 @@ export const getAllProducts = async () => {
     },
     {
       _id: 2,
-      name: "Steel Mace Gada - 7kg",
+      name: "Steel Mace Gada",
       category: "Steel Mace",
       images: ["/gada.webp", "/gada.webp"],
       price: 64.99,
@@ -35,7 +35,7 @@ export const getAllProducts = async () => {
     },
     {
       _id: 3,
-      name: "Wooden Gada - 3kg",
+      name: "Wooden Gada",
       category: "Wooden Gada",
       images: ["/gada.webp", "/gada.webp"],
       price: 34.99,
@@ -45,7 +45,7 @@ export const getAllProducts = async () => {
     },
     {
       _id: 4,
-      name: "Steel Mace Gada - 10kg",
+      name: "Steel Mace Gada",
       category: "Steel Mace",
       images: ["/gada.webp", "/gada.webp"],
       price: 84.99,
@@ -56,7 +56,7 @@ export const getAllProducts = async () => {
     },
     {
       _id: 5,
-      name: "Steel Mace Gada - 15kg",
+      name: "Steel Mace Gada",
       category: "Steel Mace",
       images: ["/gada.webp", "/gada.webp"],
       price: 119.99,
@@ -66,7 +66,7 @@ export const getAllProducts = async () => {
     },
     {
       _id: 6,
-      name: "Wooden Gada - 6kg",
+      name: "Wooden Gada",
       category: "Wooden Gada",
       images: ["/gada.webp", "/gada.webp"],
       price: 44.99,
