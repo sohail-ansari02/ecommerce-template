@@ -1,7 +1,8 @@
+import { getAllProducts, getAllProductsOld } from "./actions";
+
 import ProductSkeleton from "@/components/skeletons/ProductSkeleton";
 import { Products } from "../components/products/Products";
 import { Suspense } from "react";
-import { getAllProducts } from "./actions";
 
 const Home = async () => {
   return (

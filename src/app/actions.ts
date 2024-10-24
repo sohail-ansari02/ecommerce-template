@@ -7,8 +7,59 @@ import { EnrichedProducts, ProductDocument } from "@/types/types.old";
 import { Product } from "@/models/Products";
 import { Schema } from "mongoose";
 import { connectDB } from "@/libs/mongodb";
+import { iProduct } from "@/types/types";
 
 export const getAllProducts = async () => {
+  // Mock data for updatedCart
+  const mockProductList: iProduct[] = [{
+    _id: 1,
+    images: ['/gada.webp', '/gada.webp'],
+    name: 'Steel Mace Gada - 5kg',
+    price: 49.99,
+    onSale: false,
+  },
+  {
+    _id: 2,
+    images: ['/gada.webp', '/gada.webp'],
+    name: 'Steel Mace Gada - 7kg',
+    price: 64.99,
+    onSale: true,
+    oldPrice: 74.99,
+  },
+  {
+    _id: 3,
+    images: ['/gada.webp', '/gada.webp'],
+    name: 'Wooden Gada - 3kg',
+    price: 34.99,
+    onSale: false,
+  },
+  {
+    _id: 4,
+    images: ['/gada.webp', '/gada.webp'],
+    name: 'Steel Mace Gada - 10kg',
+    price: 84.99,
+    onSale: true,
+    oldPrice: 94.99,
+  },
+  {
+    _id: 5,
+    images: ['/gada.webp', '/gada.webp'],
+    name: 'Steel Mace Gada - 15kg',
+    price: 119.99,
+    onSale: false,
+  },
+  {
+    _id: 6,
+    images: ['/gada.webp', '/gada.webp'],
+    name: 'Wooden Gada - 6kg',
+    price: 44.99,
+    onSale: false,
+  },];
+
+  return mockProductList;
+}
+
+export const getAllProductsOld = async () => {
   // Mock data for updatedCart
   const mockUpdatedCart: EnrichedProducts[] = [
     {
