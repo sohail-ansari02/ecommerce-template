@@ -1,6 +1,6 @@
 "use server";
 
-import {  } from "@/libs/utils";
+import {} from "@/libs/utils";
 
 import { EnrichedProducts, ProductDocument } from "@/types/types.old";
 
@@ -11,53 +11,67 @@ import { iProduct } from "@/types/types";
 
 export const getAllProducts = async () => {
   // Mock data for updatedCart
-  const mockProductList: iProduct[] = [{
-    _id: 1,
-    images: ['/gada.webp', '/gada.webp'],
-    name: 'Steel Mace Gada - 5kg',
-    price: 49.99,
-    onSale: false,
-  },
-  {
-    _id: 2,
-    images: ['/gada.webp', '/gada.webp'],
-    name: 'Steel Mace Gada - 7kg',
-    price: 64.99,
-    onSale: true,
-    oldPrice: 74.99,
-  },
-  {
-    _id: 3,
-    images: ['/gada.webp', '/gada.webp'],
-    name: 'Wooden Gada - 3kg',
-    price: 34.99,
-    onSale: false,
-  },
-  {
-    _id: 4,
-    images: ['/gada.webp', '/gada.webp'],
-    name: 'Steel Mace Gada - 10kg',
-    price: 84.99,
-    onSale: true,
-    oldPrice: 94.99,
-  },
-  {
-    _id: 5,
-    images: ['/gada.webp', '/gada.webp'],
-    name: 'Steel Mace Gada - 15kg',
-    price: 119.99,
-    onSale: false,
-  },
-  {
-    _id: 6,
-    images: ['/gada.webp', '/gada.webp'],
-    name: 'Wooden Gada - 6kg',
-    price: 44.99,
-    onSale: false,
-  },];
+  const mockProductList: iProduct[] = [
+    {
+      _id: 1,
+      name: "Steel Mace Gada - 5kg",
+      category: "Steel Mace",
+      images: ["/gada.webp", "/gada.webp"],
+      price: 49.99,
+      onSale: false,
+      quantity: 0,
+    },
+    {
+      _id: 2,
+      name: "Steel Mace Gada - 7kg",
+      category: "Steel Mace",
+      images: ["/gada.webp", "/gada.webp"],
+      price: 64.99,
+      onSale: true,
+      oldPrice: 74.99,
+      quantity: 0,
+    },
+    {
+      _id: 3,
+      name: "Wooden Gada - 3kg",
+      category: "Wooden Gada",
+      images: ["/gada.webp", "/gada.webp"],
+      price: 34.99,
+      onSale: false,
+      quantity: 0,
+    },
+    {
+      _id: 4,
+      name: "Steel Mace Gada - 10kg",
+      category: "Steel Mace",
+      images: ["/gada.webp", "/gada.webp"],
+      price: 84.99,
+      onSale: true,
+      oldPrice: 94.99,
+      quantity: 0,
+    },
+    {
+      _id: 5,
+      name: "Steel Mace Gada - 15kg",
+      category: "Steel Mace",
+      images: ["/gada.webp", "/gada.webp"],
+      price: 119.99,
+      onSale: false,
+      quantity: 0,
+    },
+    {
+      _id: 6,
+      name: "Wooden Gada - 6kg",
+      category: "Wooden Gada",
+      images: ["/gada.webp", "/gada.webp"],
+      price: 44.99,
+      onSale: false,
+      quantity: 0,
+    },
+  ];
 
   return mockProductList;
-}
+};
 
 export const getAllProductsOld = async () => {
   // Mock data for updatedCart
@@ -129,7 +143,7 @@ export const getAllProductsOld = async () => {
     },
   ];
 
-  return ( mockUpdatedCart);
+  return mockUpdatedCart;
   // try {
   //   await connectDB();
 
@@ -210,7 +224,7 @@ export const getCategoryProducts = async (category: string) => {
     },
   ];
 
-  return  ( mockUpdatedCart);
+  return mockUpdatedCart;
   // try {
   //   await connectDB();
 
@@ -291,7 +305,7 @@ export const getRandomProducts = async (productId: string) => {
     },
   ];
 
-  return ( mockUpdatedCart);
+  return mockUpdatedCart;
   // const shuffleArray = (array: EnrichedProducts[]) => {
   //   let shuffled = array.slice();
   //   for (let i = shuffled.length - 1; i > 0; i--) {
@@ -318,22 +332,23 @@ export const getRandomProducts = async (productId: string) => {
 
 export const getProduct = async (_id: string) => {
   const mockUpdatedCart: ProductDocument | any = {
-    "name": "Yoga Mat",
-    "description": "High-density foam yoga mat for comfort and support during your workouts. Non-slip surface.",
-    "price": 29.99,
-    "category": "Accessories",
-    "sizes": ["72 x 24 inches"],
-    "image": ["https://example.com/images/yogamat.jpg"],
-    "variants": [
+    name: "Yoga Mat",
+    description:
+      "High-density foam yoga mat for comfort and support during your workouts. Non-slip surface.",
+    price: 29.99,
+    category: "Accessories",
+    sizes: ["72 x 24 inches"],
+    image: ["https://example.com/images/yogamat.jpg"],
+    variants: [
       {
-        "priceId": "variant-001",
-        "color": "Black",
-        "images": ["/gada.webp","/gada.webp"]
-      }
+        priceId: "variant-001",
+        color: "Black",
+        images: ["/gada.webp", "/gada.webp"],
+      },
     ],
-    "quantity": 100,
-    "productId": "605c72ef3b64b4e0f8e6d4c1",
-    "purchased": false
+    quantity: 100,
+    productId: "605c72ef3b64b4e0f8e6d4c1",
+    purchased: false,
   };
 
   return mockUpdatedCart;

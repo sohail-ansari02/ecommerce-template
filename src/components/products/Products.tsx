@@ -196,7 +196,7 @@ export const Products = async ({
                 {quantity > 1 ? (
                   <span className="text-sm">{quantity}</span>
                 ) : (
-                  // <DeleteButton product={product} />
+                  <DeleteButton product={product} />
                   <button>delet btn</button>
                 )}
               </div>
