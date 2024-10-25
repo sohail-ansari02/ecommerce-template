@@ -6,7 +6,7 @@ import useEmblaCarousel, { UseEmblaCarouselType } from 'embla-carousel-react'
 import { EmblaOptionsType } from 'embla-carousel'
 import Image from 'next/image'
 import customStyles from './heroCarousle.module.css'
-import emblaStyles from './EmblaCarousel.module.css'
+import emblaStyles from './emblaCarousel.module.css'
 
 type PropType = {
   slides: {
