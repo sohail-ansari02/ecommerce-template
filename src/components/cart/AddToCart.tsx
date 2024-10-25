@@ -7,10 +7,11 @@ import { Loader } from "../common/Loader";
 import { Session } from "next-auth";
 import { addItem } from "@/app/(carts)/cart/action";
 import { colorMapping } from "@/helpers/colorMapping";
+import { iProduct } from "@/types/types";
 import { toast } from "sonner";
 
 interface AddToCartProps {
-  product: ProductDocument;
+  product: iProduct;
   session: Session | null;
   selectedVariant: VariantsDocument | undefined;
   setSelectedVariant: (variant: VariantsDocument) => void;
@@ -42,11 +43,7 @@ export default function AddToCart({
     }
     startTransition(() => {
       addItem(
-        product.category,
-        product._id,
-        selectedSize,
-        selectedVariant.priceId,
-        product.price
+        product
       );
     });
   }, [session, selectedVariant, selectedSize, product, startTransition]);
@@ -55,7 +52,7 @@ export default function AddToCart({
     <>
       <div className="p-5">
         <div className="grid grid-cols-4 gap-2.5 justify-center">
-          {product.sizes.map((size, index) => (
+          {/* {product.sizes.map((size, index) => (
             <button
               key={index}
               className={`flex items-center justify-center border border-solid border-border-primary px-1 py-1.5 bg-black rounded transition duration-150 ease hover:border-border-secondary text-13 ${
@@ -65,10 +62,10 @@ export default function AddToCart({
             >
               <span>{size}</span>
             </button>
-          ))}
+          ))} */}
         </div>
         <div className="grid grid-cols-auto-fill-32 gap-2.5 mt-5">
-          {product.variants.map((variant, index) => (
+          {/* {product.variants.map((variant, index) => (
             <button
               key={index}
               className={`border border-solid border-border-primary w-8 h-8 flex justify-center relative rounded transition duration-150 ease hover:border-border-secondary ${
@@ -91,7 +88,7 @@ export default function AddToCart({
                 }
               />
             </button>
-          ))}
+          ))} */}
         </div>
       </div>
 
