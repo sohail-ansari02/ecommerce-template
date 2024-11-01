@@ -47,12 +47,12 @@ export const SingleProduct = ({ product, session }: SingleProduct) => {
             <p className="text-sm">{productPlainObject.description}</p>
           </div>
 
-          <AddToCart
+          {/* <AddToCart
             session={session}
             product={productPlainObject}
             selectedVariant={selectedVariant}
             setSelectedVariant={setSelectedVariant}
-          />
+          /> */}
         </div>
 
         <Accordion type="single" collapsible className="w-full">
