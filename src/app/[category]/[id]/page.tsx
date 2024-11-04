@@ -1,8 +1,8 @@
+import { Products, ProductsOld } from "@/components/products/Products";
 import { getProduct, getRandomProducts } from "@/app/actions";
 
 import { ProductDocument } from "@/types/types.old";
 import ProductSkeleton from "@/components/skeletons/ProductSkeleton";
-import { ProductsOld } from "@/components/products/Products";
 import { Session } from "next-auth";
 import { SingleProduct } from "@/components/products/SingleProduct";
 import SingleProductSkeleton from "@/components/skeletons/SingleProductSkeleton";
@@ -65,7 +65,8 @@ const AllProducts = async ({ id }: { id: string }) => {
         YOU MIGHT ALSO LIKE...
       </h2>
 
-      <ProductsOld products={randomProducts} extraClassname={"colums-mobile"} />
+      {/* <ProductsOld products={randomProducts} extraClassname={"colums-mobile"} /> */}
+      <Products products={randomProducts} extraClassname={"colums-mobile"} showDeleteBtn={false} />
     </>
   );
 };
