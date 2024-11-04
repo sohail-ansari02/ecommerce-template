@@ -21,6 +21,8 @@ export const getAllProducts = async () => {
       onSale: false,
       quantity: 0,
       addedToCart: false,
+      description: "",
+      sizes: []
     },
     {
       _id: 2,
@@ -32,6 +34,8 @@ export const getAllProducts = async () => {
       oldPrice: 74.99,
       quantity: 0,
       addedToCart: false,
+      description: "",
+      sizes: []
     },
     {
       _id: 3,
@@ -42,6 +46,8 @@ export const getAllProducts = async () => {
       onSale: false,
       quantity: 0,
       addedToCart: false,
+      description: "",
+      sizes: []
     },
     {
       _id: 4,
@@ -53,6 +59,8 @@ export const getAllProducts = async () => {
       oldPrice: 94.99,
       quantity: 0,
       addedToCart: false,
+      description: "",
+      sizes: []
     },
     {
       _id: 5,
@@ -63,6 +71,8 @@ export const getAllProducts = async () => {
       onSale: false,
       quantity: 0,
       addedToCart: false,
+      description: "",
+      sizes: []
     },
     {
       _id: 6,
@@ -73,6 +83,8 @@ export const getAllProducts = async () => {
       onSale: false,
       quantity: 0,
       addedToCart: false,
+      description: "",
+      sizes: []
     },
   ];
 
@@ -253,6 +265,8 @@ export const getRandomProducts = async (productId: string) => {
       onSale: false,
       quantity: 0,
       addedToCart: false,
+      description: "",
+      sizes: []
     },
     {
       _id: 2,
@@ -264,6 +278,8 @@ export const getRandomProducts = async (productId: string) => {
       oldPrice: 74.99,
       quantity: 0,
       addedToCart: false,
+      description: "",
+      sizes: []
     },
     {
       _id: 3,
@@ -274,6 +290,8 @@ export const getRandomProducts = async (productId: string) => {
       onSale: false,
       quantity: 0,
       addedToCart: false,
+      description: "",
+      sizes: []
     },
     {
       _id: 4,
@@ -285,6 +303,8 @@ export const getRandomProducts = async (productId: string) => {
       oldPrice: 94.99,
       quantity: 0,
       addedToCart: false,
+      description: "",
+      sizes: []
     },
     {
       _id: 5,
@@ -295,6 +315,8 @@ export const getRandomProducts = async (productId: string) => {
       onSale: false,
       quantity: 0,
       addedToCart: false,
+      description: "",
+      sizes: []
     },
     {
       _id: 6,
@@ -305,6 +327,8 @@ export const getRandomProducts = async (productId: string) => {
       onSale: false,
       quantity: 0,
       addedToCart: false,
+      description: "",
+      sizes: []
     },
   ];
 
@@ -334,27 +358,45 @@ export const getRandomProducts = async (productId: string) => {
 };
 
 export const getProduct = async (_id: string) => {
-  const mockUpdatedCart: ProductDocument | any = {
-    name: "Yoga Mat",
+  const mockUpdatedCart: iProduct = {
+    _id: '2',
+    name: "Steel Mace Gada",
     description:
-      "High-density foam yoga mat for comfort and support during your workouts. Non-slip surface.",
+      "High-density Gada  during your workouts. Non-slip surface.",
     price: 29.99,
-    category: "Accessories",
+    category: "Steel Mace",
     sizes: ["72 x 24 inches"],
-    image: ["https://example.com/images/yogamat.jpg"],
-    variants: [
-      {
-        priceId: "variant-001",
-        color: "Black",
-        images: ["/gada.webp", "/gada.webp"],
-      },
-    ],
-    quantity: 100,
-    productId: "605c72ef3b64b4e0f8e6d4c1",
-    purchased: false,
+    images: ["/gada.webp","/gada.webp"],
+    addedToCart: false,
+    onSale: false,
+    quantity: 1,
+    height:1,
+    oldPrice: 2,
+    weight:2
   };
 
   return mockUpdatedCart;
+  // const mockUpdatedCart: ProductDocument | any = {
+  //   name: "Yoga Mat",
+  //   description:
+  //     "High-density foam yoga mat for comfort and support during your workouts. Non-slip surface.",
+  //   price: 29.99,
+  //   category: "Accessories",
+  //   sizes: ["72 x 24 inches"],
+  //   image: ["https://example.com/images/yogamat.jpg"],
+  //   variants: [
+  //     {
+  //       priceId: "variant-001",
+  //       color: "Black",
+  //       images: ["/gada.webp", "/gada.webp"],
+  //     },
+  //   ],
+  //   quantity: 100,
+  //   productId: "605c72ef3b64b4e0f8e6d4c1",
+  //   purchased: false,
+  // };
+
+  // return mockUpdatedCart;
   // try {
   //   await connectDB();
 

@@ -1,6 +1,8 @@
 export interface iProduct {
   _id: string | number;
   name: string;
+  description: string;
+  sizes: string[];
   category: string;
   images: [string, string];
   price: number;

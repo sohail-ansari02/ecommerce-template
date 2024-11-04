@@ -9,6 +9,7 @@ import SingleProductSkeleton from "@/components/skeletons/SingleProductSkeleton"
 import { Suspense } from "react";
 import { authOptions } from "@/libs/auth";
 import { getServerSession } from "next-auth/next";
+import { iProduct } from "@/types/types";
 
 type Props = {
   params: {
@@ -21,7 +22,8 @@ const capitalizeFirstLetter = (string: string) => {
 };
 
 export async function generateMetadata({ params }: Props) {
-  const product: ProductDocument = await getProduct(params.id);
+  // const product: ProductDocument = await getProduct(params.id);
+  const product: iProduct = await getProduct(params.id);
   const capitalizedName = capitalizeFirstLetter(product.name);
 
   return {
@@ -53,7 +55,8 @@ const ProductPage = async ({ params }: Props) => (
 
 const AllProducts = async ({ id }: { id: string }) => {
   const session: Session | null = await getServerSession(authOptions);
-  const product: ProductDocument = await getProduct(id);
+  // const product: ProductDocument = await getProduct(id);
+  const product: iProduct = await getProduct(id);
   const randomProducts = await getRandomProducts(id);
   const productJSON = JSON.stringify(product);
 

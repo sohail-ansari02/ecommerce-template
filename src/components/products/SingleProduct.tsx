@@ -11,6 +11,7 @@ import { ProductDocument, VariantsDocument } from "@/types/types.old";
 import AddToCart from "../cart/AddToCart";
 import { ProductImages } from "@/components/products/ProductImages";
 import { Session } from "next-auth";
+import { iProduct } from "@/types/types";
 import { useState } from "react";
 
 interface SingleProduct {
@@ -19,9 +20,11 @@ interface SingleProduct {
 }
 
 export const SingleProduct = ({ product, session }: SingleProduct) => {
-  const productPlainObject: ProductDocument = JSON.parse(product);
-  const [selectedVariant, setSelectedVariant] = useState<VariantsDocument>(
-    productPlainObject.variants?.[0]
+  // const productPlainObject: ProductDocument = JSON.parse(product);
+  const productPlainObject: iProduct = JSON.parse(product);
+  // const [selectedVariant, setSelectedVariant] = useState<VariantsDocument>(
+  const [selectedVariant, setSelectedVariant] = useState<string>(
+    productPlainObject.images?.[0]
   );
 
   if (!product) {
