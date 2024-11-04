@@ -31,7 +31,8 @@ const AllProducts = async () => {
   // const productsOld = await getAllProductsOld();
   const products = await getAllProducts();
   return (
-    <Products products={products} extraClassname="" showDeleteBtn={false} />
+    // extraClassname={"colums-mobile"} adds more columns in mobile view
+    <Products products={products} showDeleteBtn={false} extraClassname={"colums-mobile"} />
   );
   // return <ProductsOld products={productsOld} extraClassname="" />;
 };

@@ -1,5 +1,7 @@
 "use client";
 
+import Image, { ImageLoader } from "next/image";
+
 import Link from "next/link";
 import React from "react";
 
@@ -13,25 +15,19 @@ export const Footer = () => {
         <div className="flex flex-col items-center justify-center w-full max-w-xs gap-5">
           <div className="flex gap-3.5">
             <Link
-              href="https://portfoliomarcos.com/"
-              target="_blank"
-              title="Portfolio of Marcos"
+              href="/"
+              aria-label="Navigate to homepage with logo"
+              className="aspect-square w-20 h-auto"
             >
-              <svg
-                data-testid="geist-icon"
-                height="24"
-                strokeLinejoin="round"
-                viewBox="0 0 16 16"
-                width="24"
-                style={{ color: "currentColor" }}
-              >
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M8 1L16 15H0L8 1Z"
-                  fill="currentColor"
-                ></path>
-              </svg>
+              <Image
+                alt="Company logo"
+                src="/logo.webp"
+                className="flex"
+                width={90}
+                height={90}
+                priority
+                sizes="(max-width: 640px) 100vw, (max-width: 1154px) 33vw, (max-width: 1536px) 25vw, 20vw"
+              />
             </Link>
             <span className="flex items-center text-sm text-[#A1A1A1]">
               © 2023
@@ -107,7 +103,7 @@ export const Footer = () => {
             </Link>
           </div>
         </div>
-        <div className="w-full max-w-xs">
+        {/* <div className="w-full max-w-xs">
           <h2 className="my-3 text-sm font-medium">Products</h2>
           <ul className="grid grid-cols-2">
             <li className={liStyles}>
@@ -135,8 +131,8 @@ export const Footer = () => {
               </Link>
             </li>
           </ul>
-        </div>
-        <div className="w-full max-w-xs">
+        </div> */}
+        {/* <div className="w-full max-w-xs">
           <h2 className="my-3 text-sm font-medium">Assistance</h2>
           <ul className="grid grid-cols-2">
             <li className={liStyles}>
@@ -155,8 +151,8 @@ export const Footer = () => {
               </Link>
             </li>
           </ul>
-        </div>
-        <div className="w-full max-w-xs">
+        </div> */}
+        {/* <div className="w-full max-w-xs">
           <h2 className="my-3 text-sm font-medium">About Marcos</h2>
           <ul className="grid grid-cols-2">
             <li className={liStyles}>
@@ -196,7 +192,7 @@ export const Footer = () => {
               </Link>
             </li>
           </ul>
-        </div>
+        </div> */}
       </nav>
     </footer>
   );

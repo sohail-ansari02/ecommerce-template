@@ -1,7 +1,8 @@
 import { EnrichedProducts, ProductDocument } from "@/types/types.old";
+import { Products, ProductsOld } from "@/components/products/Products";
+import { getAllProducts, getAllProductsOld } from "../actions";
 
-import { ProductsOld } from "@/components/products/Products";
-import { getAllProductsOld } from "../actions";
+import { iProduct } from "@/types/types";
 
 interface SearchProps {
   searchParams: { [key: string]: string | undefined };
@@ -15,8 +16,10 @@ const normalizeText = (text: string): string => {
 };
 
 const Search: React.FC<SearchProps> = async ({ searchParams }) => {
-  const products = await getAllProductsOld();
-  let filteredProducts: EnrichedProducts[] = [];
+  // const products = await getAllProductsOld();
+  const products = await getAllProducts();
+  // let filteredProducts: EnrichedProducts[] = [];
+  let filteredProducts: iProduct[] = [];
 
   if (products) {
     filteredProducts = products.filter((product) =>
@@ -27,7 +30,8 @@ const Search: React.FC<SearchProps> = async ({ searchParams }) => {
   return (
     <section className="pt-14">
       {filteredProducts.length > 0 ? (
-        <ProductsOld products={filteredProducts} extraClassname="" />
+        <Products products={filteredProducts} extraClassname="" showDeleteBtn={false} />
+        // <ProductsOld products={filteredProducts} extraClassname="" />
       ) : (
         <h3 className="text-sm text-center">
           No products found for &quot;{searchParams.q}&quot;

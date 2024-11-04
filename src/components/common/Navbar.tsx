@@ -93,7 +93,7 @@ export const Navbar = ({ session, totalItemsCart, totalWishlists }: Navbar) => {
 
   return (
     <header className="pointer-events-auto w-full px-3.5 gap-4 xs:px-6 sm:px-12 py-6 flex items-center justify-between bg-background-secondary border-b border-solid border-border-primary">
-      <button
+      {/* <button
         onClick={() => {
           toggleHeader();
           document.body.style.overflow = "hidden";
@@ -114,7 +114,7 @@ export const Navbar = ({ session, totalItemsCart, totalWishlists }: Navbar) => {
             clipRule="evenodd"
           ></path>
         </svg>
-      </button>
+      </button> */}
 
       <div
         className={`fixed top-0 left-0 h-screen w-full bg-background-secondary py-6 px-3.5 xs:px-6 transition ease duration-200 z-20 translate-x-0 ${
@@ -198,7 +198,13 @@ export const Navbar = ({ session, totalItemsCart, totalWishlists }: Navbar) => {
       </div>
 
       <ul className="justify-between items-center hidden gap-2 text-sm lg:flex">
-        <Link
+        
+        {authLinks()}
+        <li>
+          {/* <LinksDesktop /> */}
+        </li>
+      </ul>
+      <Link
           href="/"
           aria-label="Navigate to homepage with logo"
           className="aspect-square w-20 h-auto"
@@ -213,16 +219,10 @@ export const Navbar = ({ session, totalItemsCart, totalWishlists }: Navbar) => {
             sizes="(max-width: 640px) 100vw, (max-width: 1154px) 33vw, (max-width: 1536px) 25vw, 20vw"
           />
         </Link>
-        {authLinks()}
-        <li>
-          <LinksDesktop />
-        </li>
-      </ul>
-
       <SearchInput />
 
       <ul className="flex gap-2">
-        <li className="flex items-center justify-center">
+        {/* <li className="flex items-center justify-center">
           <Link
             href="/cart"
             aria-label="Products saved in the shopping cart"
@@ -247,7 +247,7 @@ export const Navbar = ({ session, totalItemsCart, totalWishlists }: Navbar) => {
               {totalItemsCart}
             </span>
           </Link>
-        </li>
+        </li> */}
         {/* <li className="flex items-center justify-center">
           <Link
             href="/wishlist"
