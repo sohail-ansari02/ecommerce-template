@@ -4,7 +4,7 @@ export interface iProduct {
   description: string;
   sizes: string[];
   category: string;
-  images: [string, string];
+  images: [string, string] | string[];
   price: number;
   onSale: boolean;
   oldPrice?: number; //(only show on sale)

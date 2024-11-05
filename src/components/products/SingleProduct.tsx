@@ -7,12 +7,12 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { ProductDocument, VariantsDocument } from "@/types/types.old";
+import { useEffect, useState } from "react";
 
 import AddToCart from "../cart/AddToCart";
 import { ProductImages } from "@/components/products/ProductImages";
 import { Session } from "next-auth";
 import { iProduct } from "@/types/types";
-import { useState } from "react";
 
 interface SingleProduct {
   product: string;
@@ -23,9 +23,10 @@ export const SingleProduct = ({ product, session }: SingleProduct) => {
   // const productPlainObject: ProductDocument = JSON.parse(product);
   const productPlainObject: iProduct = JSON.parse(product);
   // const [selectedVariant, setSelectedVariant] = useState<VariantsDocument>(
-  const [selectedVariant, setSelectedVariant] = useState<string>(
-    productPlainObject.images?.[0]
-  );
+  const [selectedVariant, setSelectedVariant] = useState<iProduct>();
+  useEffect(() => {
+    setSelectedVariant(productPlainObject);
+  }, []);
 
   if (!product) {
     return <div>Produnct not found</div>;
@@ -34,10 +35,11 @@ export const SingleProduct = ({ product, session }: SingleProduct) => {
   return (
     <div className="flex flex-wrap justify-between gap-8">
       <div className="grow-999 basis-0">
-        <ProductImages
+        {/* <ProductImages
           name={productPlainObject.name}
           selectedVariant={selectedVariant}
-        />
+        /> */}
+        <ProductImages product={productPlainObject} />
       </div>
 
       <div className="sticky flex flex-col items-center justify-center w-full h-full gap-5 grow basis-600 top-8">
