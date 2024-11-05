@@ -37,12 +37,12 @@ export const CountrySelect = () => {
   };
 
   return (
-    <div className="space-y-2 bg-black flex-1 w-full md:flex-none md:w-auto fixed bottom-5 left-4 z-50">
+    <div className="space-y-2 bg-black flex-1 md:flex-none w-auto fixed bottom-5 left-4 z-50">
       <Select onValueChange={handleChange} value={selectedCountry} defaultValue="IN">
         <SelectTrigger id="country-select">
           <SelectValue placeholder="Select Country" />
         </SelectTrigger>
-        <SelectContent>
+        <SelectContent className="h-52 overflow-auto">
           {countries.map((country) => (
             <SelectItem key={country.code} value={country.code}>
               <div className="flex items-center">

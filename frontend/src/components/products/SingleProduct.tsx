@@ -7,9 +7,19 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { ProductDocument, VariantsDocument } from "@/types/types.old";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../ui/select";
 import { useEffect, useState } from "react";
 
 import AddToCart from "../cart/AddToCart";
+import { Button } from "../ui/button";
+import { Label } from "../ui/label";
+import { OrderProduct } from "@/libs/order";
 import { ProductImages } from "@/components/products/ProductImages";
 import { Session } from "next-auth";
 import { iProduct } from "@/types/types";
@@ -71,7 +81,56 @@ export const SingleProduct = ({ product, session }: SingleProduct) => {
               </div>
               <p className="text-sm">{productPlainObject.description}</p>
             </div>
-
+            <div className="w-full p-5 flex flex-col gap-3">
+              <div className="space-y-2 flex-1 w-full md:flex-none md:w-auto">
+                <Label htmlFor="height">Height in Feet</Label>
+                <Select  defaultValue="">
+                  <SelectTrigger id="height">
+                    {/* <SelectValue placeholder="Select height" /> */}
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="5">5</SelectItem>
+                    <SelectItem value="5.5">5.5</SelectItem>
+                    <SelectItem value="6">6</SelectItem>
+                    <SelectItem value="6.5">6.5</SelectItem>
+                    <SelectItem value="7">7</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="space-y-2 flex-1 w-full md:flex-none md:w-auto">
+                <Label htmlFor="weight">Weight in Kilograms</Label>
+                <Select defaultValue="">
+                  <SelectTrigger id="weight">
+                    {/* <SelectValue placeholder="Select weight" /> */}
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="50">50 kg</SelectItem>
+                    <SelectItem value="60">60 kg</SelectItem>
+                    <SelectItem value="70">70 kg</SelectItem>
+                    <SelectItem value="80">80 kg</SelectItem>
+                    <SelectItem value="90">90 kg</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+             
+              {/* wood type */}
+              <div className="space-y-2 flex-1 w-full md:flex-none md:w-auto  ">
+                <Label htmlFor="sort-by">Wood Type</Label>
+                <Select defaultValue={""}>
+                  <SelectTrigger id="sort-by">
+                    {/* <SelectValue placeholder="Select sorting option" /> */}
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="name-ass">Babool </SelectItem>
+                    <SelectItem value="name-asec">Nameasd </SelectItem>
+                    <SelectItem value="name-assc">Name </SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+            <Button onClick={() => OrderProduct()} className="w-full text-sm p-2.5 h-full transition-all hover:bg-color-secondary">
+              Place Order{" "}
+            </Button>
             {/* <AddToCart
             session={session}
             product={productPlainObject}
