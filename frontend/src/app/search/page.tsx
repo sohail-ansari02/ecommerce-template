@@ -31,7 +31,8 @@ const Search: React.FC<SearchProps> = async ({ searchParams }) => {
     <>
     <section className="pt-14">
       {filteredProducts.length > 0 ? (
-        <Products products={filteredProducts} extraClassname="" showDeleteBtn={false} />
+            // extraClassname={"colums-mobile"} adds more columns in mobile view
+        <Products products={filteredProducts} extraClassname="colums-mobile" showDeleteBtn={false} />
         // <ProductsOld products={filteredProducts} extraClassname="" />
       ) : (
         <h3 className="text-sm text-center">
