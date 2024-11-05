@@ -13,4 +13,6 @@ export interface iProduct {
   weight?: number;
   height?: number;
   addedToCart: boolean;
+
+  type: 'gada' | 'dandpaat' | 'barbell' | 'combo' | 'mudgar';
 }
