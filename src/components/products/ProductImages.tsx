@@ -24,12 +24,11 @@ export const ProductImages = ({product}: { product: iProduct }) => {
   //     <Skeleton className="w-full rounded-b-none aspect-[2/3] min-w-[250px] lg:aspect-[4/6] lg:min-w-[560px]" />
   //   );
   // }
-  if (product.images) {
+  if (!product.images[0] && !product.images[1]) {
     return (
       <Skeleton className="w-full rounded-b-none aspect-[2/3] min-w-[250px] lg:aspect-[4/6] lg:min-w-[560px]" />
     );
   }
-
   return (
     <>
       <div className="flex lg:hidden">
@@ -41,7 +40,7 @@ export const ProductImages = ({product}: { product: iProduct }) => {
           }}
         >
           <CarouselContent>
-            {product.images && (product.images as string[]).map((image: string, index: number) => (
+            {(product.images as string[]).map((image: string, index: number) => (
               <CarouselItem key={index} className="pl-0">
                 <Images
                   image={[image]}
@@ -61,7 +60,7 @@ export const ProductImages = ({product}: { product: iProduct }) => {
       </div>
 
       <div className="lg:grid hidden grid-cols-2 gap-0.5 min-w-grid-img">
-        {product.images && (product.images as string[]).map((image: string, index: number) => (
+        {product.images.map((image: string, index: number) => (
           <div
             className="inline-block w-full max-w-2xl mx-auto overflow-hidden rounded"
             key={index}
