@@ -34,7 +34,7 @@ export const SingleProduct = ({ product, session }: SingleProduct) => {
 
   return (
     <>
-      <div className="flex flex-wrap justify-between gap-8">
+      <div className="flex flex-wrap sm:flex-nowrap justify-between gap-8">
         <div className="grow-999 basis-0">
           {/* <ProductImages
           name={productPlainObject.name}
