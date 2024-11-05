@@ -1,7 +1,13 @@
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../ui/select";
 import { Session, getServerSession } from "next-auth";
 import { Wishlists, getTotalWishlist } from "@/app/(carts)/wishlist/action";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { EnrichedProducts } from "@/types/types.old";
 import { Images } from "./Images";
@@ -128,7 +134,7 @@ export const ProductsOld = async ({
   );
 };
 export const Products = async ({
-  products,
+  products = [],
   extraClassname = "",
   showDeleteBtn = false,
 }: {
@@ -140,7 +146,12 @@ export const Products = async ({
   // const hasMissingQuantity = false;// products.some((product) => !product.quantity);
   // const wishlist =
   // hasMissingQuantity && session?.user ? await getTotalWishlist() : undefined;
- 
+
+  // const [filteredProducts,setFilteredProducts] = useState(products);
+  let filteredProducts = [];
+  const setFilteredProducts = (data: iProduct[]) => {
+    filteredProducts = data;
+  };
 
   const gridClassname = [
     "grid gap-x-3.5 gap-y-6 sm:gap-y-9",
@@ -153,8 +164,11 @@ export const Products = async ({
 
   return (
     <>
-      <ProductFilter products={products}  />
-      
+      {/* <ProductFilter
+        setFilteredProducts={setFilteredProducts}
+        products={products}
+      /> */}
+
       <div className={gridClassname}>
         {products.map((product, index) => {
           const {

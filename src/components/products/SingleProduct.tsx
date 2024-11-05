@@ -49,7 +49,26 @@ export const SingleProduct = ({ product, session }: SingleProduct) => {
               <h1 className="text-base font-semibold">
                 {productPlainObject.name}
               </h1>
-              <span className="text-sm">{productPlainObject.price}$</span>
+              {/* <span className="text-sm">{productPlainObject.price}$</span> */}
+              <div className="text-sm">
+                {productPlainObject.onSale ? (
+                  <>
+                    <span className="line-through">
+                      {productPlainObject.oldPrice} $
+                    </span>{" "}
+                    <span>{productPlainObject.price} $</span>
+                  </>
+                ) : (
+                  <>
+                    {productPlainObject.quantity
+                      ? (
+                          productPlainObject.price * productPlainObject.quantity
+                        ).toFixed(2)
+                      : productPlainObject.price}{" "}
+                    $
+                  </>
+                )}
+              </div>
               <p className="text-sm">{productPlainObject.description}</p>
             </div>
 
@@ -71,10 +90,12 @@ export const SingleProduct = ({ product, session }: SingleProduct) => {
                 <p>
                   Our Gada and Dandpaat are crafted using high-quality materials
                   sourced from trusted suppliers across India. The handles are
-                  made from premium quality **hardwood** such as **rosewood** or
-                  **teak**, known for their durability and strength. The heads
-                  are forged from **brass** or **steel**, ensuring longevity and
-                  performance in martial arts training or ceremonial use.
+                  made from premium quality <strong>hardwood</strong> such as{" "}
+                  <strong>rosewood</strong> or
+                  <strong>teak</strong> , known for their durability and
+                  strength. The heads are forged from <strong>brass</strong> or{" "}
+                  <strong>steel</strong> , ensuring longevity and performance in
+                  martial arts training or ceremonial use.
                 </p>
                 <p>
                   Each weapon is hand-crafted by skilled artisans who have
@@ -94,22 +115,24 @@ export const SingleProduct = ({ product, session }: SingleProduct) => {
                   preserves the craftsmanship.
                 </p>
                 <p>
-                  **Wood Care**: Regularly wipe down the wooden handle with a
-                  soft, dry cloth to remove dust and moisture. If the wood
-                  starts to dry out, apply a small amount of **wood oil** to
-                  keep it smooth and prevent cracking.
+                  <strong>Wood Care:</strong>
+                  Regularly wipe down the wooden handle with a soft, dry cloth
+                  to remove dust and moisture. If the wood starts to dry out,
+                  apply a small amount of <strong>wood oil</strong> to keep it
+                  smooth and prevent cracking.
                 </p>
                 <p>
-                  **Metal Care**: For the metal parts, clean them with a dry
-                  cloth to remove fingerprints and dust. You can use **brass
-                  polish** or a **steel cleaner** for a more thorough clean,
+                  <strong>Metal Care:</strong> For the metal parts, clean them
+                  with a dry cloth to remove fingerprints and dust. You can use{" "}
+                  <strong>brass polish</strong> or a{" "}
+                  <strong>steel cleaner</strong> for a more thorough clean,
                   restoring the shine and protecting the metal from corrosion.
                 </p>
                 <p>
-                  **Storage**: Keep your Gada or Dandpaat in a dry and cool
-                  environment, away from direct sunlight and moisture. Hanging
-                  them on a wall or storing them in a protective case is ideal
-                  for preventing damage.
+                  <strong>Storage:</strong> Keep your Gada or Dandpaat in a dry
+                  and cool environment, away from direct sunlight and moisture.
+                  Hanging them on a wall or storing them in a protective case is
+                  ideal for preventing damage.
                 </p>
               </AccordionContent>
             </AccordionItem>
@@ -120,18 +143,20 @@ export const SingleProduct = ({ product, session }: SingleProduct) => {
               <AccordionContent className="flex flex-col gap-2">
                 <p>
                   Our Gada and Dandpaat are hand-crafted by expert artisans in
-                  **India**, a country with a rich history of traditional
-                  weaponry and martial arts. The designs are inspired by ancient
-                  Indian warriors who wielded these weapons in battle and as a
-                  symbol of strength and discipline.
+                  <strong>India</strong>, a country with a rich history of
+                  traditional weaponry and martial arts. The designs are
+                  inspired by ancient Indian warriors who wielded these weapons
+                  in battle and as a symbol of strength and discipline.
                 </p>
                 <p>
                   These weapons are not just functional; they are a part of
-                  India’s cultural heritage, deeply rooted in **Hindu
-                  mythology** and ancient martial arts practices like
-                  **Kalaripayattu** and **Malla-Yuddha**. By purchasing these
-                  products, you are supporting a craft that has been passed down
-                  through generations, and contributing to the preservation of
+                  India’s cultural heritage, deeply rooted in
+                  <strong>Hindu mythology</strong> and ancient martial arts
+                  practices like
+                  <strong>Kalaripayattu</strong> and
+                  <strong>Malla-Yuddha</strong>. By purchasing these products,
+                  you are supporting a craft that has been passed down through
+                  generations, and contributing to the preservation of
                   traditional Indian arts.
                 </p>
                 <p>Made in India</p>

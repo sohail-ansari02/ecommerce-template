@@ -1,4 +1,4 @@
-"use client";
+"use server";
 
 import {
   Select,
@@ -13,7 +13,7 @@ import { Label } from "../ui/label";
 import { Slider } from "../ui/slider";
 import { iProduct } from "@/types/types";
 
-const ProductFilter = ({ products }: { products: iProduct[] }) => {
+const ProductFilter = ({ products,setFilteredProducts }: { products: iProduct[],setFilteredProducts:any }) => {
   const [priceRange, setPriceRange] = useState<number[]>([0, 100]);
   const [sortBy, setSortBy] = useState<string>("name-asc");
 
@@ -26,7 +26,8 @@ const ProductFilter = ({ products }: { products: iProduct[] }) => {
     } else {
       setPriceRange([0, 100]); // Reset or set default values when no products
     }
-  }, [products]);
+    setFilteredProducts(products);
+  }, [products,setFilteredProducts]);
 
   const maxPrice = useMemo(
     () => Math.max(...products.map((p) => p.price || 0), 100),

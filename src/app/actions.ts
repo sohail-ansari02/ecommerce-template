@@ -368,7 +368,7 @@ export const getProduct = async (_id: string) => {
     sizes: ["72 x 24 inches"],
     images: ["/gada.webp","/gada.webp"],
     addedToCart: false,
-    onSale: false,
+    onSale: true,
     quantity: 1,
     height:1,
     oldPrice: 2,
