@@ -4,6 +4,8 @@ import { Session, getServerSession } from "next-auth";
 
 import { Analytics } from "@vercel/analytics/react";
 import { BRAND_NAME } from "./brand-info.const";
+import { Currency } from "lucide-react";
+import CurrrencySelect from "@/components/currency/currrencySelect";
 import { Footer } from "../components/common/Footer";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
@@ -32,7 +34,8 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <Providers>
-        <body className={GeistSans.className}>
+        <body className={GeistSans.className + "relative"}>
+          <CurrrencySelect />
           <Navbar session={session} totalItemsCart={3} totalWishlists={4} />
           <main className="pointer-events-auto">
             {children}
