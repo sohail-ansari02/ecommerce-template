@@ -1,9 +1,11 @@
 import { Products, ProductsOld } from "../components/products/Products";
+import { Suspense, useEffect } from "react";
 import { getAllProducts, getAllProductsOld } from "./actions";
 
 import HeroEmblaCarousel from "@/components/home/heroCarousle";
 import ProductSkeleton from "@/components/skeletons/ProductSkeleton";
-import { Suspense } from "react";
+import { redirect } from "next/navigation";
+import { useRouter } from "next/router";
 
 const IMAGE_SLIDES = [
   {
@@ -12,6 +14,9 @@ const IMAGE_SLIDES = [
   },
 ];
 const Home = async () => {
+  redirect('/search'); // Redirects to the /search page immediately
+
+  return "";
   return (
     <section className="pt-14">
       <Suspense
