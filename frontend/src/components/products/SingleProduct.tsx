@@ -128,7 +128,7 @@ export const SingleProduct = ({ product, session }: SingleProduct) => {
                 </Select>
               </div>
             </div>
-            <Button onClick={() => OrderProduct()} className="w-full text-sm p-2.5 h-full transition-all hover:bg-color-secondary">
+            <Button onClick={() => OrderProduct(productPlainObject)} className="w-full text-sm p-2.5 h-full transition-all hover:bg-color-secondary">
               Place Order{" "}
             </Button>
             {/* <AddToCart

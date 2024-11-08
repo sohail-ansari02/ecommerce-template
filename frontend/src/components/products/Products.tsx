@@ -164,10 +164,10 @@ export const Products = async ({
 
   return (
     <>
-      {/* <ProductFilter
+      <ProductFilter
         setFilteredProducts={setFilteredProducts}
         products={products}
-      /> */}
+      />
 
       <div className={gridClassname}>
         {products.map((product, index) => {
