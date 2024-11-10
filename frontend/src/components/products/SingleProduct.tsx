@@ -150,7 +150,7 @@ export const SingleProduct = ({ product, session }: SingleProduct) => {
                   Our Gada and Dandpaat are crafted using high-quality materials
                   sourced from trusted suppliers across India. The handles are
                   made from premium quality <strong>hardwood</strong> such as{" "}
-                  <strong>rosewood</strong> or
+                  <strong>rosewood</strong> or{" "}
                   <strong>teak</strong> , known for their durability and
                   strength. The heads are forged from <strong>brass</strong> or{" "}
                   <strong>steel</strong> , ensuring longevity and performance in
@@ -201,7 +201,7 @@ export const SingleProduct = ({ product, session }: SingleProduct) => {
               <AccordionTrigger className="text-sm">ORIGIN</AccordionTrigger>
               <AccordionContent className="flex flex-col gap-2">
                 <p>
-                  Our Gada and Dandpaat are hand-crafted by expert artisans in
+                  Our Gada and Dandpaat are hand-crafted by expert artisans in{" "}
                   <strong>India</strong>, a country with a rich history of
                   traditional weaponry and martial arts. The designs are
                   inspired by ancient Indian warriors who wielded these weapons
@@ -210,10 +210,10 @@ export const SingleProduct = ({ product, session }: SingleProduct) => {
                 <p>
                   These weapons are not just functional; they are a part of
                   India’s cultural heritage, deeply rooted in
-                  <strong>Hindu mythology</strong> and ancient martial arts
+                  {" "}<strong>Hindu mythology</strong> and ancient martial arts
                   practices like
-                  <strong>Kalaripayattu</strong> and
-                  <strong>Malla-Yuddha</strong>. By purchasing these products,
+                  {" "}<strong>Kalaripayattu</strong> and
+                  {" "}<strong>Malla-Yuddha</strong>. By purchasing these products,
                   you are supporting a craft that has been passed down through
                   generations, and contributing to the preservation of
                   traditional Indian arts.
