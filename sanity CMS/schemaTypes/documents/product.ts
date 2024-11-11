@@ -19,33 +19,35 @@ export default defineType({
             title: 'Sizes',
             type: 'array',
             of: [{ type: 'string' }],
-            hidden: ({ document }) => !document?.hasSize  // Shows only if hasSize is true
+            hidden: ({ document }) => !document?.hasSize
         }),
 
         defineField({ name: 'hasWeight', title: 'Has Weight?', type: 'boolean', initialValue: false }),
         defineField({
             name: 'weight',
             title: 'Weight (KG)',
-            type: 'string',
-            hidden: ({ document }) => !document?.hasWeight  // Shows only if hasWeight is true
+            type: 'array',
+            of: [{ type: 'string' }],
+            hidden: ({ document }) => !document?.hasWeight,
+            validation: (Rule) => Rule.min(0).error('Weight cannot be 0 KG')
         }),
-
 
         defineField({ name: 'hasHeight', title: 'Has Height?', type: 'boolean', initialValue: false }),
         defineField({
             name: 'height',
             title: 'Height (Feet)',
-            type: 'number',
-            hidden: ({ document }) => !document?.hasHeight  // Shows only if hasHeight is true
+            type: 'array',
+            of: [{ type: 'string' }],
+            hidden: ({ document }) => !document?.hasHeight,
+            validation: (Rule) => Rule.min(0.1).error('Height cannot be 0 feet')
         }),
 
-        // defineField({ name: 'category', title: 'Category', type: 'string' }),
         defineField({
             name: 'category',
             title: 'Category',
             type: 'reference',
             to: [{ type: 'category' }],
-          }),
+        }),
 
         defineField({
             name: 'images',
@@ -53,22 +55,36 @@ export default defineType({
             type: 'array',
             of: [{ type: 'image' }],
             options: { layout: 'grid' },
-            validation: (Rule) => Rule.max(2)  // Limit to 2 images
+            validation: (Rule) => Rule.max(2).error('Only 2 images are allowed')
         }),
 
+        // Pricing fields with custom validation
         defineField({ name: 'onSale', title: 'On Sale', type: 'boolean' }),
-        defineField({ name: 'price', title: 'Price', type: 'number' }),
+        defineField({
+            name: 'price',
+            title: 'Price',
+            type: 'number',
+            validation: (Rule) => Rule.min(0).error('Price must be greater than zero')
+        }),
         defineField({
             name: 'oldPrice',
             title: 'Old Price',
             type: 'number',
-            hidden: ({ document }) => !document?.onSale  // Shows only if onSale is true
+            hidden: ({ document }) => !document?.onSale,
+            validation: (Rule) =>
+                Rule.min(0).custom((oldPrice, context) => {
+                    if (context.document?.onSale && oldPrice < context.document?.price) {
+                        return 'Old price should be greater than or equal to the current price'
+                    }
+                    return true
+                })
         }),
+
         defineField({
             name: 'type',
             title: 'Product Type',
             type: 'reference',
-            to: [{ type: 'productType' }], // Link to the productType schema
-          }),
+            to: [{ type: 'productType' }],
+        }),
     ],
 })
