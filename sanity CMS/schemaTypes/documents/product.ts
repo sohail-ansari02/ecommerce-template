@@ -26,7 +26,7 @@ export default defineType({
         defineField({
             name: 'weight',
             title: 'Weight (KG)',
-            type: 'number',
+            type: 'string',
             hidden: ({ document }) => !document?.hasWeight  // Shows only if hasWeight is true
         }),
 
@@ -39,7 +39,13 @@ export default defineType({
             hidden: ({ document }) => !document?.hasHeight  // Shows only if hasHeight is true
         }),
 
-        defineField({ name: 'category', title: 'Category', type: 'string' }),
+        // defineField({ name: 'category', title: 'Category', type: 'string' }),
+        defineField({
+            name: 'category',
+            title: 'Category',
+            type: 'reference',
+            to: [{ type: 'category' }],
+          }),
 
         defineField({
             name: 'images',
@@ -58,21 +64,11 @@ export default defineType({
             type: 'number',
             hidden: ({ document }) => !document?.onSale  // Shows only if onSale is true
         }),
-
-
         defineField({
             name: 'type',
-            title: 'Type',
-            type: 'string',
-            options: {
-                list: [
-                    { title: 'Gada', value: 'gada' },
-                    { title: 'Dandpaat', value: 'dandpaat' },
-                    { title: 'Barbell', value: 'barbell' },
-                    { title: 'Combo', value: 'combo' },
-                    { title: 'Mudgar', value: 'mudgar' }
-                ]
-            }
-        })
+            title: 'Product Type',
+            type: 'reference',
+            to: [{ type: 'productType' }], // Link to the productType schema
+          }),
     ],
 })
