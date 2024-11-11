@@ -87,4 +87,15 @@ export default defineType({
             to: [{ type: 'productType' }],
         }),
     ],
+
+    // preview: {
+    //     select: {
+    //         name: 'name',
+    //         description: 'description',
+    //         price: 'price',
+    //         images: 'images',
+    //         type: 'type', // Reference to Product Type
+    //     },
+    //     component: ProductPreview // Use custom preview component
+    // },
 })
