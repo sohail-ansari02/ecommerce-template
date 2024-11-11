@@ -25,7 +25,7 @@ export default defineType({
         defineField({ name: 'hasWeight', title: 'Has Weight?', type: 'boolean', initialValue: false }),
         defineField({
             name: 'weight',
-            title: 'Weight (KG)',
+            title: 'Weights (KG)',
             type: 'array',
             of: [{ type: 'string' }],
             hidden: ({ document }) => !document?.hasWeight,
@@ -35,7 +35,7 @@ export default defineType({
         defineField({ name: 'hasHeight', title: 'Has Height?', type: 'boolean', initialValue: false }),
         defineField({
             name: 'height',
-            title: 'Height (Feet)',
+            title: 'Heights (Feet)',
             type: 'array',
             of: [{ type: 'string' }],
             hidden: ({ document }) => !document?.hasHeight,
