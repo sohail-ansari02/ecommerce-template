@@ -98,4 +98,22 @@ export default defineType({
     //     },
     //     component: ProductPreview // Use custom preview component
     // },
+    // preview: {
+    //     select: {
+    //         title: 'name',
+    //         subtitle: 'category', // Show category as the subtitle
+    //         media: 'images.0', // Display the first image in the preview
+    //         price: 'price',
+    //         onSale: 'onSale',
+    //     },
+    //     prepare(selection) {
+    //         const { title, subtitle, media, price, onSale } = selection
+    //         return {
+    //             title: title,
+    //             subtitle: `${subtitle} - ₹${price}`,
+    //             media: media,
+    //             description: onSale ? 'On Sale' : 'Regular Price'
+    //         }
+    //     }
+    // },
 })
