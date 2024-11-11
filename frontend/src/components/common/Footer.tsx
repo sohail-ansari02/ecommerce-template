@@ -30,7 +30,7 @@ export const Footer = () => {
               />
             </Link>
             <span className="flex items-center text-sm text-[#A1A1A1]">
-              © 2023
+              © {new Date().getFullYear()}
             </span>
           </div>
           <div className="flex gap-3.5">

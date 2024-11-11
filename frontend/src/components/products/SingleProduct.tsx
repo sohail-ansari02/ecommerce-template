@@ -19,6 +19,7 @@ import { useEffect, useState } from "react";
 import AddToCart from "../cart/AddToCart";
 import { Button } from "../ui/button";
 import { Label } from "../ui/label";
+import OrderPopup from "./OrderPopup";
 import { OrderProduct } from "@/libs/order";
 import { ProductImages } from "@/components/products/ProductImages";
 import { Session } from "next-auth";
@@ -128,9 +129,10 @@ export const SingleProduct = ({ product, session }: SingleProduct) => {
                 </Select>
               </div>
             </div>
-            <Button onClick={() => OrderProduct(productPlainObject)} className="w-full text-sm p-2.5 h-full transition-all hover:bg-color-secondary">
+            {/* <Button onClick={() => OrderProduct(productPlainObject)} className="w-full text-sm p-2.5 h-full transition-all hover:bg-color-secondary">
               Place Order{" "}
-            </Button>
+            </Button> */}
+            <OrderPopup className="w-full text-sm p-2.5 h-full transition-all hover:bg-color-secondary" />
             {/* <AddToCart
             session={session}
             product={productPlainObject}
@@ -174,8 +176,7 @@ export const SingleProduct = ({ product, session }: SingleProduct) => {
                   preserves the craftsmanship.
                 </p>
                 <p>
-                  <strong>Wood Care:</strong>
-                  Regularly wipe down the wooden handle with a soft, dry cloth
+                  <strong>Wood Care:</strong> Regularly wipe down the wooden handle with a soft, dry cloth
                   to remove dust and moisture. If the wood starts to dry out,
                   apply a small amount of <strong>wood oil</strong> to keep it
                   smooth and prevent cracking.
