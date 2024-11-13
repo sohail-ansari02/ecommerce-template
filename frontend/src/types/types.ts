@@ -2,16 +2,17 @@ export interface iProduct {
   _id: string | number;
   name: string;
   description: string;
-  sizes: string[];
   category: string;
   images: [string, string];
   price: number;
   onSale: boolean;
   oldPrice?: number; //(only show on sale)
-  quantity: number; // cart quantity
-
-  weight?: number;
-  height?: number;
+  quantity: number; // product quantity
+  
+  sizes?: any[];
+  weight?: any[];
+  height?: any[];
+  woodType?: any[];
   addedToCart: boolean;
 
   type: 'gada' | 'dandpaat' | 'barbell' | 'combo' | 'mudgar';

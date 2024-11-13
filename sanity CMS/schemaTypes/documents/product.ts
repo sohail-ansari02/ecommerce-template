@@ -42,6 +42,15 @@ export default defineType({
             validation: (Rule) => Rule.min(0.1).error('Height cannot be 0 feet')
         }),
 
+        defineField({ name: 'hasWoodType', title: 'Has Wood Type?', type: 'boolean', initialValue: false }),
+        defineField({
+            name: 'type',
+            title: 'Wood Type',
+            type: 'reference',
+            to: [{ type: 'woodType' }],
+            hidden: ({ document }) => !document?.hasWoodType,
+        }),
+
         defineField({
             name: 'category',
             title: 'Category',
@@ -80,12 +89,7 @@ export default defineType({
                 })
         }),
 
-        defineField({
-            name: 'type',
-            title: 'Product Type',
-            type: 'reference',
-            to: [{ type: 'productType' }],
-        }),
+       
     ],
 
     // preview: {

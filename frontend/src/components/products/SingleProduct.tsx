@@ -73,8 +73,8 @@ export const SingleProduct = ({ product, session }: SingleProduct) => {
                   <>
                     {productPlainObject.quantity
                       ? (
-                          productPlainObject.price * productPlainObject.quantity
-                        ).toFixed(2)
+                        productPlainObject.price * productPlainObject.quantity
+                      ).toFixed(2)
                       : productPlainObject.price}{" "}
                     $
                   </>
@@ -83,51 +83,69 @@ export const SingleProduct = ({ product, session }: SingleProduct) => {
               <p className="text-sm">{productPlainObject.description}</p>
             </div>
             <div className="w-full p-5 flex flex-col gap-3">
-              <div className="space-y-2 flex-1 w-full md:flex-none md:w-auto">
-                <Label htmlFor="height">Height in Feet</Label>
-                <Select  defaultValue="">
-                  <SelectTrigger id="height">
-                    {/* <SelectValue placeholder="Select height" /> */}
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="5">5</SelectItem>
-                    <SelectItem value="5.5">5.5</SelectItem>
-                    <SelectItem value="6">6</SelectItem>
-                    <SelectItem value="6.5">6.5</SelectItem>
-                    <SelectItem value="7">7</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-              <div className="space-y-2 flex-1 w-full md:flex-none md:w-auto">
-                <Label htmlFor="weight">Weight in Kilograms</Label>
-                <Select defaultValue="">
-                  <SelectTrigger id="weight">
-                    {/* <SelectValue placeholder="Select weight" /> */}
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="50">50 kg</SelectItem>
-                    <SelectItem value="60">60 kg</SelectItem>
-                    <SelectItem value="70">70 kg</SelectItem>
-                    <SelectItem value="80">80 kg</SelectItem>
-                    <SelectItem value="90">90 kg</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-             
+              {
+                !!productPlainObject?.height && (
+                  <div className="space-y-2 flex-1 w-full md:flex-none md:w-auto">
+                    <Label htmlFor="height">Height in Feet</Label>
+                    <Select defaultValue="">
+                      <SelectTrigger id="height">
+                        {/* <SelectValue placeholder="Select height" /> */}
+                      </SelectTrigger>
+                      <SelectContent>
+                        {
+                          productPlainObject.height.map((val, _index) => (
+                            <SelectItem key={_index} value={val}>{val} feet</SelectItem>
+                          ))
+                        }
+                      </SelectContent>
+                    </Select>
+                  </div>
+                )
+              }
+
+
+              {!!productPlainObject?.weight && (
+                <div className="space-y-2 flex-1 w-full md:flex-none md:w-auto">
+                  <Label htmlFor="weight">Weight in Kilograms</Label>
+                  <Select defaultValue="">
+                    <SelectTrigger id="weight">
+                      {/* <SelectValue placeholder="Select weight" /> */}
+                    </SelectTrigger>
+
+                    <SelectContent>
+                      {
+                        productPlainObject.weight.map((val, _index) => (
+                          <SelectItem key={_index} value={val}>{val} Kg</SelectItem>
+                        ))
+                      }
+                    </SelectContent>
+                  </Select>
+                </div>
+              )}
+
               {/* wood type */}
-              <div className="space-y-2 flex-1 w-full md:flex-none md:w-auto  ">
-                <Label htmlFor="sort-by">Wood Type</Label>
-                <Select defaultValue={""}>
-                  <SelectTrigger id="sort-by">
-                    {/* <SelectValue placeholder="Select sorting option" /> */}
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="name-ass">Babool </SelectItem>
-                    <SelectItem value="name-asec">Nameasd </SelectItem>
-                    <SelectItem value="name-assc">Name </SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
+              {
+                !!productPlainObject?.woodType && (
+                  <div className="space-y-2 flex-1 w-full md:flex-none md:w-auto  ">
+                    <Label htmlFor="sort-by">Wood Type</Label>
+                    <Select defaultValue={""}>
+                      <SelectTrigger id="sort-by">
+                        {/* <SelectValue placeholder="Select sorting option" /> */}
+                      </SelectTrigger>
+
+                      <SelectContent>
+                        {
+                          productPlainObject.woodType.map((val, _index) => (
+                            <SelectItem key={_index} value={val}>{val}</SelectItem>
+                          ))
+                        }
+                      </SelectContent>
+                    </Select>
+                  </div>
+                )
+              }
+
+
             </div>
             {/* <Button onClick={() => OrderProduct(productPlainObject)} className="w-full text-sm p-2.5 h-full transition-all hover:bg-color-secondary">
               Place Order{" "}

@@ -182,7 +182,7 @@ export const Products = async ({
             oldPrice,
           } = product;
           // const productLink = `/${category}/${quantity ? productId : _id}`;
-          const productLink = `/${category}/${_id}`;
+          const productLink =  `/${encodeURIComponent(category)}/${_id}`;
           const containerClassname = [
             "flex justify-between border border-solid border-border-primary rounded-md overflow-hidden",
             extraClassname === "cart-ord-mobile"
