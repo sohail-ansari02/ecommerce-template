@@ -33,7 +33,7 @@ export const Footer = () => {
               © {new Date().getFullYear()}
             </span>
           </div>
-          <div className="flex gap-3.5 justify-start">
+          <div className="flex gap-3.5 justify-center">
             {/* <Link
               href="https://www.linkedin.com/in/marcospenelascamara/"
               target="_blank"
