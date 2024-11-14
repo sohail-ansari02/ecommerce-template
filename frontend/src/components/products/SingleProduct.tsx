@@ -35,6 +35,26 @@ export const SingleProduct = ({ product, session }: SingleProduct) => {
   const productPlainObject: iProduct = JSON.parse(product);
   // const [selectedVariant, setSelectedVariant] = useState<VariantsDocument>(
   const [selectedVariant, setSelectedVariant] = useState<iProduct>();
+
+  // const [height, setHeight] = useState();
+  // const [weight, setWeight] = useState();
+  const [formData, setFormData] = useState({
+    height : '',
+    weight : '',
+    woodType : ''
+  })
+  const {height, weight, woodType} = formData
+  useEffect(() => {
+    setFormData({
+      height : productPlainObject.height?.[0],
+      weight : productPlainObject.weight?.[0],
+      woodType : productPlainObject.woodType?.[0]
+    })
+  }, []);
+
+  const formDataHandler = (name, value) => setFormData({...formData, [name] : value})
+
+  
   useEffect(() => {
     setSelectedVariant(productPlainObject);
   }, []);
@@ -81,15 +101,16 @@ export const SingleProduct = ({ product, session }: SingleProduct) => {
                 )}
               </div>
               <p className="text-sm">{productPlainObject.description}</p>
+              {product}
             </div>
             <div className="w-full p-5 flex flex-col gap-3">
               {
                 !!productPlainObject?.height && (
                   <div className="space-y-2 flex-1 w-full md:flex-none md:w-auto">
                     <Label htmlFor="height">Height in Feet</Label>
-                    <Select defaultValue="">
+                    <Select value={height} onValueChange={value => formDataHandler('height',value)}>
                       <SelectTrigger id="height">
-                        {/* <SelectValue placeholder="Select height" /> */}
+                        <SelectValue placeholder="Select height" />
                       </SelectTrigger>
                       <SelectContent>
                         {
@@ -107,9 +128,9 @@ export const SingleProduct = ({ product, session }: SingleProduct) => {
               {!!productPlainObject?.weight && (
                 <div className="space-y-2 flex-1 w-full md:flex-none md:w-auto">
                   <Label htmlFor="weight">Weight in Kilograms</Label>
-                  <Select defaultValue="">
+                  <Select value={weight} onValueChange={value => formDataHandler('weight',value)}>
                     <SelectTrigger id="weight">
-                      {/* <SelectValue placeholder="Select weight" /> */}
+                      <SelectValue placeholder="Select weight" />
                     </SelectTrigger>
 
                     <SelectContent>
@@ -128,9 +149,9 @@ export const SingleProduct = ({ product, session }: SingleProduct) => {
                 !!productPlainObject?.woodType && (
                   <div className="space-y-2 flex-1 w-full md:flex-none md:w-auto  ">
                     <Label htmlFor="sort-by">Wood Type</Label>
-                    <Select defaultValue={""}>
+                    <Select value={woodType} onValueChange={value => formDataHandler('woodType',value)}>
                       <SelectTrigger id="sort-by">
-                        {/* <SelectValue placeholder="Select sorting option" /> */}
+                        <SelectValue placeholder="Select sorting option" />
                       </SelectTrigger>
 
                       <SelectContent>

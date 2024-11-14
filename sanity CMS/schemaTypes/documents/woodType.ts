@@ -1,4 +1,4 @@
-// schemas/documents/productType.ts
+// schemas/documents/woodType.ts
 
 import { defineField, defineType } from 'sanity'
 

@@ -44,7 +44,7 @@ export default defineType({
 
         defineField({ name: 'hasWoodType', title: 'Has Wood Type?', type: 'boolean', initialValue: false }),
         defineField({
-            name: 'type',
+            name: 'woodType',
             title: 'Wood Type',
             type: 'reference',
             to: [{ type: 'woodType' }],
