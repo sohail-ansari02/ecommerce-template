@@ -754,6 +754,7 @@ export const getProduct = async (_id: string) => {
       "category": category->title,    // Fetch category title
       sizes,
       weight,
+      "woodType": woodTypes[]->title,     // Fetch only wood type titles
       height,
     }
   `

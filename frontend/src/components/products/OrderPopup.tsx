@@ -9,13 +9,15 @@ import { Button } from '../ui/button'
 import { Input } from '../ui/input'
 import { Label } from '../ui/label'
 import { OrderProduct } from '@/libs/order';
+import RSelect from 'react-select';
 import { cn } from "@/libs/utils"
 import { fetchCountries } from '@/libs/countryList';
 
-export default function OrderPopup({ className }: { className?: string }) {
+export default function OrderPopup({ className, formData }: { className?: string, formData : any }) {
     const [open, setOpen] = useState(false)
     const [countries, setCountries] = useState<{ code: string, name: string, flag: string, currency: string }[]>([]);
 
+    const [country, setCountry] = useState("")
     // Fetch countries from an API (for example, REST Countries API)
     useEffect(() => {
         fetchCountries().then(data => setCountries(data))
@@ -28,6 +30,30 @@ export default function OrderPopup({ className }: { className?: string }) {
         console.log('Order data:', orderData)
         // Here you would typically send the data to your backend
         setOpen(false)
+    }
+
+    function submitOrder(customer: any): void {
+        const message = `
+Customer Details,
+First Name: ${customer.firstName || '-'}
+Last Name: ${customer.lastName || '-'}
+Phone: ${customer.phone || '-'}
+Email: ${customer.email || '-'}
+Country: ${customer.country || '-'}
+Shipping Address: ${customer.shippingAddress || '-'}
+Postal Code: ${customer.postalCode || '-'}
+__________________________________________________________
+
+Product Details,
+Name: ${formData.name || '-'}
+Height: ${formData.height || '-'}
+Weight: ${formData.weight || '-'}
+Wood Type: ${formData.woodType || '-'}
+
+___________________________________________________________
+
+`;
+        OrderProduct(message);
     }
 
     return (
@@ -61,29 +87,40 @@ export default function OrderPopup({ className }: { className?: string }) {
                         </div>
                         <div className="space-y-2">
                             <Label htmlFor="country" className="text-white">Country</Label>
-                            <Select name="country" defaultValue="IN">
+                            <RSelect
+                                getOptionLabel={(e) => (
+                                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                                        <img src={e.icon} alt={e.label} className="w-6 h-4 mr-2" />
+                                        {e.label}
+                                    </div>
+                                )}
+                                value={country}
+                                onChange={setCountry}
+                                options={countries.map(elt => ({ value: elt.code, label: elt.name, icon: elt.flag }))}
+                            />
+                            {/* <Select name="country" defaultValue="IN">
                                 <SelectTrigger className="w-full" id="country">
                                     <SelectValue placeholder="Select a country" />
                                 </SelectTrigger>
-                                <SelectContent className="h-52 !overflow-scroll !isolate" style={{ 'overflow': 'auto' }}>
+                                <SelectContent>
                                     {countries.map((country) => (
                                         <SelectItem key={country.code} value={country.code}>
                                             <div className="flex items-center">
                                                 <img src={country.flag} alt={country.name} className="w-6 h-4 mr-2" />
                                                 <span className="mr-2">{country.name}</span>
-                                                {/* <span className="text-sm text-gray-500">{country.currency}</span> */}
+                                                <span className="text-sm text-gray-500">{country.currency}</span>
                                             </div>
                                         </SelectItem>
                                     ))}
                                 </SelectContent>
-                            </Select>
+                            </Select> */}
                         </div>
-                       
+
                         <div className="space-y-2">
                             <Label htmlFor="shippingAddress" className="text-white">Shipping Address</Label>
                             <Input id="shippingAddress" name="shippingAddress" required />
                         </div>
-                      
+
                         <div className="space-y-2">
                             <Label htmlFor="postalCode" className="text-white">Postal Code</Label>
                             <Input id="postalCode" name="postalCode" type="string" required />
@@ -93,7 +130,7 @@ export default function OrderPopup({ className }: { className?: string }) {
                             <Dialog.Close asChild>
                                 <Button variant="outline" className='text-black'>Cancel</Button>
                             </Dialog.Close>
-                            <Button type="submit" variant="default" onClick={() => OrderProduct()} >Submit Order</Button>
+                            <Button type="submit" variant="default" onClick={(e) => submitOrder(e)} >Submit Order</Button>
                         </div>
                     </form>
                     <Dialog.Close asChild>

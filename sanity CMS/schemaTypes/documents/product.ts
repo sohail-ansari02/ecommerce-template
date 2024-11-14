@@ -45,9 +45,14 @@ export default defineType({
         defineField({ name: 'hasWoodType', title: 'Has Wood Type?', type: 'boolean', initialValue: false }),
         defineField({
             name: 'woodType',
-            title: 'Wood Type',
-            type: 'reference',
-            to: [{ type: 'woodType' }],
+            title: 'Wood Types',
+            type: 'array',
+            of: [
+                {
+                    type: 'reference',
+                    to: [{ type: 'woodType' }],  // Array of accepted types for the reference
+                }
+            ],
             hidden: ({ document }) => !document?.hasWoodType,
         }),
 

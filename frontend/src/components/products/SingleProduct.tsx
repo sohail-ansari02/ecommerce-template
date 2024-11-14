@@ -101,7 +101,6 @@ export const SingleProduct = ({ product, session }: SingleProduct) => {
                 )}
               </div>
               <p className="text-sm">{productPlainObject.description}</p>
-              {product}
             </div>
             <div className="w-full p-5 flex flex-col gap-3">
               {
@@ -151,7 +150,7 @@ export const SingleProduct = ({ product, session }: SingleProduct) => {
                     <Label htmlFor="sort-by">Wood Type</Label>
                     <Select value={woodType} onValueChange={value => formDataHandler('woodType',value)}>
                       <SelectTrigger id="sort-by">
-                        <SelectValue placeholder="Select sorting option" />
+                        <SelectValue placeholder="Select Wood Type" />
                       </SelectTrigger>
 
                       <SelectContent>
@@ -171,7 +170,7 @@ export const SingleProduct = ({ product, session }: SingleProduct) => {
             {/* <Button onClick={() => OrderProduct(productPlainObject)} className="w-full text-sm p-2.5 h-full transition-all hover:bg-color-secondary">
               Place Order{" "}
             </Button> */}
-            <OrderPopup className="w-full text-sm p-2.5 h-full transition-all hover:bg-color-secondary" />
+            <OrderPopup formData={formData} className="w-full text-sm p-2.5 h-full transition-all hover:bg-color-secondary" />
             {/* <AddToCart
             session={session}
             product={productPlainObject}
