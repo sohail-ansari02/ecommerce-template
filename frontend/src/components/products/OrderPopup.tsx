@@ -12,6 +12,7 @@ import { OrderProduct } from '@/libs/order';
 import RSelect from 'react-select';
 import { cn } from "@/libs/utils"
 import { fetchCountries } from '@/libs/countryList';
+import { toast } from 'sonner';
 
 export default function OrderPopup({ className, formData }: { className?: string, formData : any }) {
     const [open, setOpen] = useState(false)
@@ -20,6 +21,17 @@ export default function OrderPopup({ className, formData }: { className?: string
     const [country, setCountry] = useState("")
     // Fetch countries from an API (for example, REST Countries API)
     useEffect(() => {
+        
+        for (const key in formData) {
+            if (formData.hasOwnProperty(key)) {
+              const value = formData[key];
+              // Check if the value is falsy (null, undefined, empty string, etc.)
+              if (!!value) {
+                  setOpen(false);
+                  toast.error("Please Select Product details");
+              }
+            }
+          }
         fetchCountries().then(data => setCountries(data))
     }, []);
 
@@ -32,9 +44,15 @@ export default function OrderPopup({ className, formData }: { className?: string
         setOpen(false)
     }
 
-    function submitOrder(customer: any): void {
-        const message = `
-Customer Details,
+    function submitOrder(event: React.FormEvent<HTMLFormElement>): void {
+        event.preventDefault();
+        const fd = new FormData(event.currentTarget)
+        const customer = Object.fromEntries(fd)
+        console.log('Order data:', customer)
+
+        setOpen(false);
+        let message = `
+ Customer Details,
 First Name: ${customer.firstName || '-'}
 Last Name: ${customer.lastName || '-'}
 Phone: ${customer.phone || '-'}
@@ -53,6 +71,8 @@ Wood Type: ${formData.woodType || '-'}
 ___________________________________________________________
 
 `;
+message = message.replace(/\n/g, ' , ');
+
         OrderProduct(message);
     }
 
@@ -64,11 +84,11 @@ ___________________________________________________________
             <Dialog.Portal>
                 <Dialog.Overlay className="bg-black/50 fixed inset-0 !pointer-events-none" />
                 <Dialog.Content onInteractOutside={e => e.preventDefault()}
-                    className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#0A0A0A] rounded-lg p-6 w-full max-w-md max-h-[85vh] overflow-y-auto border border-[#2E2E2E]">
+                    className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#0A0A0A] rounded-lg p-6 w-full max-w-md max-h-[85vh] overflow-y-auto border border-[#2E2E2E] z-[2]">
                     <Dialog.Title className="text-xl font-bold mb-4 text-white">
                         Order Information
                     </Dialog.Title>
-                    <form onSubmit={handleSubmit} className="space-y-4">
+                    <form onSubmit={submitOrder} className="space-y-4">
                         <div className="space-y-2">
                             <Label htmlFor="firstName" className="text-white">First Name</Label>
                             <Input id="firstName" name="firstName" required />
@@ -88,16 +108,39 @@ ___________________________________________________________
                         <div className="space-y-2">
                             <Label htmlFor="country" className="text-white">Country</Label>
                             <RSelect
-                                getOptionLabel={(e) => (
-                                    <div style={{ display: 'flex', alignItems: 'center' }}>
-                                        <img src={e.icon} alt={e.label} className="w-6 h-4 mr-2" />
-                                        {e.label}
-                                    </div>
-                                )}
-                                value={country}
-                                onChange={setCountry}
-                                options={countries.map(elt => ({ value: elt.code, label: elt.name, icon: elt.flag }))}
-                            />
+                getOptionLabel={(e) => (
+                  <div className="flex items-center">
+                    <img src={e.icon} alt={e.label} className="w-6 h-4 mr-2" />
+                    {e.label}
+                  </div>
+                )}
+                value={country}
+                onChange={setCountry}
+                options={countries.map(elt => ({ value: elt.code, label: elt.name, icon: elt.flag }))}
+                className="react-select-container"
+                classNamePrefix="react-select"
+                styles={{
+                  control: (provided) => ({
+                    ...provided,
+                    backgroundColor: '#0A0A0A',
+                    borderColor: '#2E2E2E',
+                    color: 'white',
+                  }),
+                  menu: (provided) => ({
+                    ...provided,
+                    backgroundColor: '#0A0A0A',
+                  }),
+                  option: (provided, state) => ({
+                    ...provided,
+                    backgroundColor: state.isFocused ? '#2E2E2E' : '#0A0A0A',
+                    color: 'white',
+                  }),
+                  singleValue: (provided) => ({
+                    ...provided,
+                    color: 'white',
+                  }),
+                }}
+              />
                             {/* <Select name="country" defaultValue="IN">
                                 <SelectTrigger className="w-full" id="country">
                                     <SelectValue placeholder="Select a country" />
@@ -130,7 +173,7 @@ ___________________________________________________________
                             <Dialog.Close asChild>
                                 <Button variant="outline" className='text-black'>Cancel</Button>
                             </Dialog.Close>
-                            <Button type="submit" variant="default" onClick={(e) => submitOrder(e)} >Submit Order</Button>
+                            <Button type="submit" variant="default" >Submit Order</Button>
                         </div>
                     </form>
                     <Dialog.Close asChild>
