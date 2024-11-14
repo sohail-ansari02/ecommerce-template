@@ -22,7 +22,7 @@ export const CountrySelect = () => {
   };
 
   return (
-    <div className="space-y-2 bg-black flex-1 md:flex-none w-auto fixed bottom-5 left-4 z-[1]">
+    <div className="space-y-2 bg-black flex-1 md:flex-none w-auto fixed bottom-5 left-4 z-[2]">
       <Select onValueChange={handleChange} value={selectedCountry} defaultValue="IN">
         <SelectTrigger id="country-select4currency">
           <SelectValue placeholder="Select Country" />

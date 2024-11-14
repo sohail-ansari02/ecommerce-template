@@ -84,7 +84,7 @@ message = message.replace(/\n/g, ' , ');
             <Dialog.Portal>
                 <Dialog.Overlay className="bg-black/50 fixed inset-0 !pointer-events-none" />
                 <Dialog.Content onInteractOutside={e => e.preventDefault()}
-                    className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#0A0A0A] rounded-lg p-6 w-full max-w-md max-h-[85vh] overflow-y-auto border border-[#2E2E2E] z-[2]">
+                    className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#0A0A0A] rounded-lg p-6 w-full max-w-md max-h-[85vh] overflow-y-auto border border-[#2E2E2E] z-[3]">
                     <Dialog.Title className="text-xl font-bold mb-4 text-white">
                         Order Information
                     </Dialog.Title>
