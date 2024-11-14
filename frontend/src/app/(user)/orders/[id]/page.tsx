@@ -8,7 +8,7 @@ import { getOrder } from "../action";
 
 export async function generateMetadata() {
   return {
-    title: `Order Details | Fitness Ecommerce`,
+    title: `Order Details | Mircle Fitness`,
   };
 }
 

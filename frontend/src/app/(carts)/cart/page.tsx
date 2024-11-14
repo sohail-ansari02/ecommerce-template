@@ -23,7 +23,7 @@ const ButtonCheckout = dynamic(
 
 export async function generateMetadata() {
   return {
-    title: "Cart | Fitness Ecommerce",
+    title: "Cart | Mircle Fitness",
     description: `Cart at e-commerce template made by Marcos Cámara`,
   };
 }

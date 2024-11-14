@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: Props) {
   const capitalizedName = capitalizeFirstLetter(product.name);
 
   return {
-    title: `${capitalizedName} | Fitness Ecommerce`,
+    title: `${capitalizedName} | Mircle Fitness`,
     description: product.description,
   };
 }

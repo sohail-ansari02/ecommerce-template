@@ -57,9 +57,9 @@ export const Footer = () => {
               </svg>
             </Link> */}
             <Link
-              href="https://www.linkedin.com/in/marcospenelascamara/"
+              href="https://www.instagram.com/miraclefiitness"
               target="_blank"
-              title="LindedIn of Marcos"
+              title="Instagram of Mircle Fitness"
             >
               <svg id="geist-icon" fill="rgb(217, 50, 117)" version="1.1" xmlns="http://www.w3.org/2000/svg"  x="0px" y="0px" width="24" strokeLinejoin="round"
                 viewBox="0 0 169.063 169.063" style={{ color: "currentColor" }}>

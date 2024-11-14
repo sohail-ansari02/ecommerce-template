@@ -1,1 +1,1 @@
-export const BRAND_NAME = 'Fitness Ecommerce';
+export const BRAND_NAME = 'Mircle Fitness';

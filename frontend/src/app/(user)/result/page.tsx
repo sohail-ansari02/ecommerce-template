@@ -4,7 +4,7 @@ import { saveOrder } from "../orders/action";
 
 export async function generateMetadata() {
   return {
-    title: "Purchase Result | Fitness Ecommerce",
+    title: "Purchase Result | Mircle Fitness",
     description:
       "Result of the purchase in the test ecommerce created by Marcos Cámara",
   };

@@ -9,7 +9,7 @@ import { getItems } from "./action";
 
 export async function generateMetadata() {
   return {
-    title: "Wishlists | Fitness Ecommerce",
+    title: "Wishlists | Mircle Fitness",
     description: `Wishlists at e-commerce template made by Marcos Cámara`,
   };
 }

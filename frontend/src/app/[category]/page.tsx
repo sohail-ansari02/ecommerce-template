@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props) {
   const capitalizedCategory = capitalizeFirstLetter(params.category);
 
   return {
-    title: `${capitalizedCategory} | Fitness Ecommerce`,
+    title: `${capitalizedCategory} | Mircle Fitness`,
     description: `${capitalizedCategory} category at e-commerce template made by Marcos Cámara`,
   };
 }
