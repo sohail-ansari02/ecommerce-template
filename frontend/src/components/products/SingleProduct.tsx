@@ -52,7 +52,7 @@ export const SingleProduct = ({ product, session }: SingleProduct) => {
     })
   }, []);
 
-  const formDataHandler = (name, value) => setFormData({...formData, [name] : value})
+  const formDataHandler = (name: any, value:any) => setFormData({...formData, [name] : value})
 
   
   useEffect(() => {

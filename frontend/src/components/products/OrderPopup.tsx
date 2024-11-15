@@ -108,15 +108,15 @@ message = message.replace(/\n/g, ' , ');
                         <div className="space-y-2">
                             <Label htmlFor="country" className="text-white">Country</Label>
                             <RSelect
-                getOptionLabel={(e) => (
+                getOptionLabel={(e:any):any => (
                   <div className="flex items-center">
                     <img src={e.icon} alt={e.label} className="w-6 h-4 mr-2" />
                     {e.label}
                   </div>
                 )}
                 value={country}
-                onChange={setCountry}
-                options={countries.map(elt => ({ value: elt.code, label: elt.name, icon: elt.flag }))}
+                onChange={setCountry as any}
+                options={countries.map(elt => ({ value: elt.code, label: elt.name, icon: elt.flag })) as any}
                 className="react-select-container"
                 classNamePrefix="react-select"
                 styles={{
