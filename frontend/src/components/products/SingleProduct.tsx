@@ -41,14 +41,16 @@ export const SingleProduct = ({ product, session }: SingleProduct) => {
   const [formData, setFormData] = useState({
     height : '',
     weight : '',
-    woodType : ''
+    woodType : '',
+    name: ''
   })
   const {height, weight, woodType} = formData
   useEffect(() => {
     setFormData({
       height : productPlainObject.height?.[0],
       weight : productPlainObject.weight?.[0],
-      woodType : productPlainObject.woodType?.[0]
+      woodType : productPlainObject.woodType?.[0],
+      name: productPlainObject.name
     })
   }, []);
 

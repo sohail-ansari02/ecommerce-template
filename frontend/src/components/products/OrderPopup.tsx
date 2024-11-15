@@ -14,24 +14,24 @@ import { cn } from "@/libs/utils"
 import { fetchCountries } from '@/libs/countryList';
 import { toast } from 'sonner';
 
-export default function OrderPopup({ className, formData }: { className?: string, formData : any }) {
+export default function OrderPopup({ className, formData }: { className?: string, formData: any }) {
     const [open, setOpen] = useState(false)
     const [countries, setCountries] = useState<{ code: string, name: string, flag: string, currency: string }[]>([]);
 
     const [country, setCountry] = useState("")
     // Fetch countries from an API (for example, REST Countries API)
     useEffect(() => {
-        
+
         for (const key in formData) {
             if (formData.hasOwnProperty(key)) {
-              const value = formData[key];
-              // Check if the value is falsy (null, undefined, empty string, etc.)
-              if (!!value) {
-                  setOpen(false);
-                  toast.error("Please Select Product details");
-              }
+                const value = formData[key];
+                // Check if the value is falsy (null, undefined, empty string, etc.)
+                if (!!value) {
+                    setOpen(false);
+                    toast.error("Please Select Product details");
+                }
             }
-          }
+        }
         fetchCountries().then(data => setCountries(data))
     }, []);
 
@@ -71,7 +71,7 @@ Wood Type: ${formData.woodType || '-'}
 ___________________________________________________________
 
 `;
-message = message.replace(/\n/g, ' , ');
+        message = message.replace(/\n/g, ' , ');
 
         OrderProduct(message);
     }
@@ -100,39 +100,40 @@ message = message.replace(/\n/g, ' , ');
                         <div className="space-y-2">
                             <Label htmlFor="country" className="text-white">Country</Label>
                             <RSelect
-                getOptionLabel={(e:any):any => (
-                  <div className="flex items-center">
-                    <img src={e.icon} alt={e.label} className="w-6 h-4 mr-2" />
-                    {e.label}
-                  </div>
-                )}
-                value={country}
-                onChange={setCountry as any}
-                options={countries.map(elt => ({ value: elt.code, label: elt.name, icon: elt.flag })) as any}
-                className="react-select-container"
-                classNamePrefix="react-select"
-                styles={{
-                  control: (provided) => ({
-                    ...provided,
-                    backgroundColor: '#0A0A0A',
-                    borderColor: '#2E2E2E',
-                    color: 'white',
-                  }),
-                  menu: (provided) => ({
-                    ...provided,
-                    backgroundColor: '#0A0A0A',
-                  }),
-                  option: (provided, state) => ({
-                    ...provided,
-                    backgroundColor: state.isFocused ? '#2E2E2E' : '#0A0A0A',
-                    color: 'white',
-                  }),
-                  singleValue: (provided) => ({
-                    ...provided,
-                    color: 'white',
-                  }),
-                }}
-              />
+                                getOptionLabel={(e: any): any => (
+                                    <div className="flex items-center">
+                                        <img src={e.icon} alt={e.label} className="w-6 h-4 mr-2" />
+                                        {e.label}
+                                    </div>
+                                )}
+                                name='country'
+                                value={country}
+                                onChange={(val) => setCountry(val as any)}
+                                options={countries.map(elt => ({ value: elt.name, label: elt.name, icon: elt.flag })) as any}
+                                className="react-select-container"
+                                classNamePrefix="react-select"
+                                styles={{
+                                    control: (provided) => ({
+                                        ...provided,
+                                        backgroundColor: '#0A0A0A',
+                                        borderColor: '#2E2E2E',
+                                        color: 'white',
+                                    }),
+                                    menu: (provided) => ({
+                                        ...provided,
+                                        backgroundColor: '#0A0A0A',
+                                    }),
+                                    option: (provided, state) => ({
+                                        ...provided,
+                                        backgroundColor: state.isFocused ? '#2E2E2E' : '#0A0A0A',
+                                        color: 'white',
+                                    }),
+                                    singleValue: (provided) => ({
+                                        ...provided,
+                                        color: 'white',
+                                    }),
+                                }}
+                            />
                             {/* <Select name="country" defaultValue="IN">
                                 <SelectTrigger className="w-full" id="country">
                                     <SelectValue placeholder="Select a country" />
@@ -158,7 +159,7 @@ message = message.replace(/\n/g, ' , ');
                             <Label htmlFor="email" className="text-white">Email</Label>
                             <Input id="email" name="email" type="email" required />
                         </div>
-                       
+
 
                         <div className="space-y-2">
                             <Label htmlFor="shippingAddress" className="text-white">Shipping Address</Label>
