@@ -5,14 +5,16 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 
 import { Label } from "../ui/label";
 import { fetchCountries } from "@/libs/countryList";
+import { useCurrency } from "@/context/currency-context";
 
 export const CountrySelect = () => {
   const [selectedCountry, setSelectedCountry] = useState<string>("IN");  // Default country code is India (IN)
   const [countries, setCountries] = useState<{ code: string, name: string, flag: string, currency: string }[]>([]);
-
+  
   // Fetch countries from an API (for example, REST Countries API)
   useEffect(() => {
-    fetchCountries().then(data => setCountries(data))
+    fetchCountries().then(data => setCountries(data));
+    setSelectedCountry("IN");
   }, []);
 
   // Handle country change
