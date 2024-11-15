@@ -87,9 +87,9 @@ export const SingleProduct = ({ product, session }: SingleProduct) => {
                 {productPlainObject.onSale ? (
                   <>
                     <span className="line-through">
-                      {productPlainObject.oldPrice} $
+                      {productPlainObject.oldPrice} ₹
                     </span>{" "}
-                    <span>{productPlainObject.price} $</span>
+                    <span>{productPlainObject.price} ₹</span>
                   </>
                 ) : (
                   <>

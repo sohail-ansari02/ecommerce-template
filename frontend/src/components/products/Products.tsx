@@ -230,11 +230,11 @@ export const Products = async ({
                 <div className="text-sm">
                   {onSale ? (
                     <>
-                      <span className="line-through">{oldPrice} $</span>{" "}
-                      <span>{price} $</span>
+                      <span className="line-through">{oldPrice} ₹</span>{" "}
+                      <span>{price} ₹</span>
                     </>
                   ) : (
-                    <>{quantity ? (price * quantity).toFixed(2) : price} $</>
+                    <>{quantity ? (price * quantity).toFixed(2) : price} ₹</>
                   )}
                 </div>
 
