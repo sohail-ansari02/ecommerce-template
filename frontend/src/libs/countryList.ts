@@ -7,6 +7,8 @@ export const fetchCountries = async () => {
             name: country.name.common, // Common name (United States, Canada, etc.)
             flag: country.flags.svg, // Flag URL
             currency: country.currencies ? Object.keys(country.currencies)[0] : "N/A", // Get currency code (e.g., INR, USD, etc.)
+            currencySymbol: country.currencies ? country.currencies[Object.keys(country.currencies)[0]].symbol : "N/A", // Get currency code (e.g., INR, USD, etc.)
+
         }))
         return countryList;
     }

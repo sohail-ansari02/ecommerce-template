@@ -6,6 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { CurrencyContext, CurrencyProvider, getSelectedCountry, getSelectedCurrencySymbol } from "@/context/currency-context";
 import { ProductDocument, VariantsDocument } from "@/types/types.old";
 import {
   Select,
@@ -14,13 +15,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import AddToCart from "../cart/AddToCart";
 import { Button } from "../ui/button";
 import { Label } from "../ui/label";
 import OrderPopup from "./OrderPopup";
-import { OrderProduct } from "@/libs/order";
 import { ProductImages } from "@/components/products/ProductImages";
 import { Session } from "next-auth";
 import { iProduct } from "@/types/types";
@@ -35,7 +35,7 @@ export const SingleProduct = ({ product, session }: SingleProduct) => {
   const productPlainObject: iProduct = JSON.parse(product);
   // const [selectedVariant, setSelectedVariant] = useState<VariantsDocument>(
   const [selectedVariant, setSelectedVariant] = useState<iProduct>();
-
+  const test = useContext(CurrencyContext)
   // const [height, setHeight] = useState();
   // const [weight, setWeight] = useState();
   const [formData, setFormData] = useState({
