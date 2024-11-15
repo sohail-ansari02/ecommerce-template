@@ -98,14 +98,6 @@ message = message.replace(/\n/g, ' , ');
                             <Input id="lastName" name="lastName" required />
                         </div>
                         <div className="space-y-2">
-                            <Label htmlFor="phone" className="text-white">Phone</Label>
-                            <Input id="phone" name="phone" type="tel" required />
-                        </div>
-                        <div className="space-y-2">
-                            <Label htmlFor="email" className="text-white">Email</Label>
-                            <Input id="email" name="email" type="email" required />
-                        </div>
-                        <div className="space-y-2">
                             <Label htmlFor="country" className="text-white">Country</Label>
                             <RSelect
                 getOptionLabel={(e:any):any => (
@@ -158,6 +150,15 @@ message = message.replace(/\n/g, ' , ');
                                 </SelectContent>
                             </Select> */}
                         </div>
+                        <div className="space-y-2">
+                            <Label htmlFor="phone" className="text-white">Phone</Label>
+                            <Input id="phone" name="phone" type="tel" required />
+                        </div>
+                        <div className="space-y-2">
+                            <Label htmlFor="email" className="text-white">Email</Label>
+                            <Input id="email" name="email" type="email" required />
+                        </div>
+                       
 
                         <div className="space-y-2">
                             <Label htmlFor="shippingAddress" className="text-white">Shipping Address</Label>
